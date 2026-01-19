@@ -959,7 +959,7 @@ function SolutionsSection() {
 // ============================================
 // SOLUTION DETAILS SECTION
 // ============================================
-function SolutionDetailsSection() {
+function SolutionDetailsSection({ onHemenBasla }) {
   const solutionDetails = [
     {
       id: 'booking',
@@ -970,16 +970,22 @@ function SolutionDetailsSection() {
       color: '#3B82F6',
       bgColor: 'from-blue-600 to-indigo-700',
       features: [
-        { title: 'Geniş Yetenek Havuzu', desc: '200+ profesyonel sanatçı ve performansçı' },
-        { title: 'Doğrulanmış Profiller', desc: 'Referansları ve geçmiş performansları inceleyin' },
-        { title: 'Esnek Bütçe', desc: 'Her bütçeye uygun seçenekler' },
-        { title: 'Kolay İletişim', desc: 'Doğrudan menajerlerle görüşün' },
+        { title: 'Geniş Yetenek Havuzu', desc: '200+ profesyonel sanatçı' },
+        { title: 'Doğrulanmış Profiller', desc: 'Referansları inceleyin' },
+        { title: 'Esnek Bütçe', desc: 'Her bütçeye uygun' },
+        { title: 'Kolay İletişim', desc: 'Direkt iletişim' },
       ],
       stats: [
         { value: '200+', label: 'Sanatçı' },
         { value: '500+', label: 'Performans' },
         { value: '4.9', label: 'Puan' },
-      ]
+      ],
+      providers: [
+        { name: 'DJ Emre', category: 'DJ / Elektronik', rating: 4.9, reviews: 127, price: '₺8,000', location: 'İstanbul', tags: ['Club', 'Festival', 'Düğün'] },
+        { name: 'The Covers', category: 'Canlı Müzik', rating: 4.8, reviews: 89, price: '₺15,000', location: 'Ankara', tags: ['Pop', 'Rock', 'Jazz'] },
+        { name: 'Cem Yılmaz Show', category: 'Stand-up', rating: 5.0, reviews: 234, price: '₺50,000', location: 'İstanbul', tags: ['Komedi', 'Kurumsal'] },
+      ],
+      categories: ['DJ', 'Canlı Müzik', 'Stand-up', 'Dans Grubu', 'Sihirbaz', 'MC']
     },
     {
       id: 'teknik',
@@ -990,16 +996,22 @@ function SolutionDetailsSection() {
       color: '#10B981',
       bgColor: 'from-emerald-600 to-teal-700',
       features: [
-        { title: 'Son Teknoloji', desc: 'En güncel ses ve ışık sistemleri' },
-        { title: 'Teknik Ekip', desc: 'Deneyimli teknik personel desteği' },
-        { title: 'Kurulum Dahil', desc: 'Montaj ve demontaj hizmeti' },
-        { title: 'Test & Deneme', desc: 'Etkinlik öncesi ses kontrolü' },
+        { title: 'Son Teknoloji', desc: 'Güncel ekipmanlar' },
+        { title: 'Teknik Ekip', desc: 'Deneyimli personel' },
+        { title: 'Kurulum Dahil', desc: 'Montaj hizmeti' },
+        { title: 'Test & Deneme', desc: 'Ses kontrolü' },
       ],
       stats: [
         { value: '150+', label: 'Tedarikçi' },
         { value: '1000+', label: 'Ekipman' },
         { value: '24/7', label: 'Destek' },
-      ]
+      ],
+      providers: [
+        { name: 'Pro Sound Systems', category: 'Ses Sistemi', rating: 4.9, reviews: 156, price: '₺12,000', location: 'İstanbul', tags: ['Line Array', 'Festival', 'Konser'] },
+        { name: 'Işık Sanatı', category: 'Işık & Efekt', rating: 4.7, reviews: 98, price: '₺8,500', location: 'İzmir', tags: ['LED', 'Lazer', 'Moving Head'] },
+        { name: 'Stage Masters', category: 'Sahne', rating: 4.8, reviews: 67, price: '₺25,000', location: 'Ankara', tags: ['Sahne', 'Truss', 'Backstage'] },
+      ],
+      categories: ['Ses Sistemi', 'Işık', 'Sahne', 'LED Ekran', 'Jeneratör', 'Efekt']
     },
     {
       id: 'mekan',
@@ -1010,16 +1022,22 @@ function SolutionDetailsSection() {
       color: '#8B5CF6',
       bgColor: 'from-violet-600 to-purple-700',
       features: [
-        { title: 'Çeşitli Seçenekler', desc: 'Her tür ve kapasitede mekan' },
-        { title: 'Sanal Tur', desc: 'Online mekan gezisi imkanı' },
-        { title: 'Paket Fiyatlar', desc: 'Catering dahil paketler' },
-        { title: 'Konum Avantajı', desc: '81 ilde mekan seçenekleri' },
+        { title: 'Çeşitli Seçenekler', desc: 'Her tür mekan' },
+        { title: 'Sanal Tur', desc: 'Online gezinti' },
+        { title: 'Paket Fiyatlar', desc: 'Catering dahil' },
+        { title: 'Konum Avantajı', desc: '81 ilde mekan' },
       ],
       stats: [
         { value: '300+', label: 'Mekan' },
         { value: '81', label: 'İl' },
         { value: '50K+', label: 'Kapasite' },
-      ]
+      ],
+      providers: [
+        { name: 'Zorlu PSM', category: 'Konser Salonu', rating: 4.9, reviews: 312, price: '₺150,000', location: 'İstanbul', tags: ['5000 Kişi', 'Kapalı', 'Premium'] },
+        { name: 'Life Park', category: 'Açık Alan', rating: 4.6, reviews: 89, price: '₺80,000', location: 'İstanbul', tags: ['10000 Kişi', 'Açık', 'Festival'] },
+        { name: 'The Marmara', category: 'Otel & Teras', rating: 4.8, reviews: 145, price: '₺45,000', location: 'Antalya', tags: ['500 Kişi', 'Teras', 'Lüks'] },
+      ],
+      categories: ['Konser Salonu', 'Açık Alan', 'Otel', 'Tarihi Mekan', 'Teras', 'Stüdyo']
     },
     {
       id: 'konaklama',
@@ -1030,16 +1048,22 @@ function SolutionDetailsSection() {
       color: '#EC4899',
       bgColor: 'from-pink-600 to-rose-700',
       features: [
-        { title: 'VIP Paketler', desc: 'Sanatçılar için özel odalar' },
-        { title: 'Grup İndirimi', desc: 'Toplu rezervasyonda avantaj' },
-        { title: 'Merkezi Konum', desc: 'Etkinlik alanına yakın oteller' },
-        { title: 'Ekstra Hizmetler', desc: 'Transfer ve yemek dahil seçenekler' },
+        { title: 'VIP Paketler', desc: 'Özel odalar' },
+        { title: 'Grup İndirimi', desc: '%30\'a varan indirim' },
+        { title: 'Merkezi Konum', desc: 'Yakın oteller' },
+        { title: 'Ekstra Hizmet', desc: 'Transfer dahil' },
       ],
       stats: [
         { value: '100+', label: 'Otel' },
         { value: '%30', label: 'İndirim' },
         { value: '5★', label: 'Seçenekler' },
-      ]
+      ],
+      providers: [
+        { name: 'Hilton İstanbul', category: '5 Yıldız', rating: 4.9, reviews: 567, price: '₺3,500/gece', location: 'İstanbul', tags: ['Lüks', 'Merkezi', 'VIP'] },
+        { name: 'Marriott Ankara', category: '5 Yıldız', rating: 4.8, reviews: 234, price: '₺2,800/gece', location: 'Ankara', tags: ['Business', 'Spa', 'Restoran'] },
+        { name: 'Wyndham Grand', category: '5 Yıldız', rating: 4.7, reviews: 189, price: '₺2,500/gece', location: 'İzmir', tags: ['Deniz', 'Havuz', 'Toplantı'] },
+      ],
+      categories: ['5 Yıldız', '4 Yıldız', 'Butik', 'Apart', 'Villa', 'Hostel']
     },
     {
       id: 'ulasim',
@@ -1050,16 +1074,22 @@ function SolutionDetailsSection() {
       color: '#F59E0B',
       bgColor: 'from-amber-500 to-orange-600',
       features: [
-        { title: 'VIP Transfer', desc: 'Lüks araçlarla havalimanı transferi' },
-        { title: 'Grup Taşıma', desc: 'Otobüs ve minibüs kiralama' },
-        { title: 'Ekipman Lojistiği', desc: 'Güvenli ekipman taşımacılığı' },
-        { title: 'Şehirlerarası', desc: 'Türkiye genelinde hizmet' },
+        { title: 'VIP Transfer', desc: 'Lüks araçlar' },
+        { title: 'Grup Taşıma', desc: 'Otobüs kiralama' },
+        { title: 'Ekipman Lojistik', desc: 'Güvenli taşıma' },
+        { title: 'Şehirlerarası', desc: 'Türkiye geneli' },
       ],
       stats: [
         { value: '80+', label: 'Partner' },
         { value: '500+', label: 'Araç' },
         { value: '81', label: 'İl' },
-      ]
+      ],
+      providers: [
+        { name: 'VIP Transfer TR', category: 'VIP Araç', rating: 4.9, reviews: 234, price: '₺1,500', location: 'İstanbul', tags: ['Mercedes', 'Havalimanı', '7/24'] },
+        { name: 'Tour Bus', category: 'Otobüs', rating: 4.7, reviews: 156, price: '₺8,000/gün', location: 'Türkiye', tags: ['50 Kişi', 'Klima', 'WiFi'] },
+        { name: 'Cargo Express', category: 'Lojistik', rating: 4.8, reviews: 89, price: 'Teklif Al', location: 'Türkiye', tags: ['Ekipman', 'Sigortalı', 'Hızlı'] },
+      ],
+      categories: ['VIP Araç', 'Minibüs', 'Otobüs', 'Lojistik', 'Havalimanı', 'Şehirlerarası']
     },
     {
       id: 'operasyon',
@@ -1070,16 +1100,22 @@ function SolutionDetailsSection() {
       color: '#EF4444',
       bgColor: 'from-red-600 to-rose-700',
       features: [
-        { title: 'Güvenlik', desc: 'Lisanslı güvenlik personeli' },
-        { title: 'Hostes & Host', desc: 'Eğitimli karşılama ekibi' },
-        { title: 'Sahne Arkası', desc: 'Backstage koordinasyonu' },
-        { title: 'Acil Durum', desc: 'Sağlık ve güvenlik planı' },
+        { title: 'Güvenlik', desc: 'Lisanslı personel' },
+        { title: 'Hostes & Host', desc: 'Eğitimli ekip' },
+        { title: 'Sahne Arkası', desc: 'Backstage yönetimi' },
+        { title: 'Acil Durum', desc: 'Güvenlik planı' },
       ],
       stats: [
         { value: '50+', label: 'Ajans' },
         { value: '2000+', label: 'Personel' },
         { value: '100+', label: 'Etkinlik' },
-      ]
+      ],
+      providers: [
+        { name: 'Securitas Events', category: 'Güvenlik', rating: 4.9, reviews: 189, price: '₺500/kişi', location: 'Türkiye', tags: ['Lisanslı', 'Silahlı', '7/24'] },
+        { name: 'Hostes Pro', category: 'Karşılama', rating: 4.8, reviews: 234, price: '₺400/kişi', location: 'İstanbul', tags: ['Yabancı Dil', 'Tecrübeli', 'Şık'] },
+        { name: 'Stage Crew', category: 'Teknik Ekip', rating: 4.7, reviews: 67, price: '₺600/kişi', location: 'Türkiye', tags: ['Sahne', 'Rigger', 'Ses'] },
+      ],
+      categories: ['Güvenlik', 'Hostes', 'Garson', 'Teknik', 'Koordinatör', 'Sağlık']
     },
   ]
 
@@ -1089,82 +1125,130 @@ function SolutionDetailsSection() {
         <div
           key={solution.id}
           id={solution.id}
-          className={`py-24 scroll-mt-16 ${index % 2 === 0 ? 'bg-[#121212]' : 'bg-[#1a1a2e]'}`}
+          className={`py-20 scroll-mt-16 ${index % 2 === 0 ? 'bg-[#121212]' : 'bg-[#0d0d1a]'}`}
         >
           <div className="max-w-7xl mx-auto px-6">
-            <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-              {/* Content */}
-              <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ backgroundColor: `${solution.color}20`, border: `1px solid ${solution.color}40` }}>
+            {/* Header */}
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: `${solution.color}20`, border: `1px solid ${solution.color}40` }}>
                   <solution.icon className="w-4 h-4" style={{ color: solution.color }} />
                   <span className="text-sm font-medium" style={{ color: solution.color }}>{solution.title}</span>
                 </div>
-
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
                   {solution.subtitle}
                 </h2>
-                <p className="text-lg text-white/60 mb-8 leading-relaxed">
+                <p className="text-white/60 max-w-2xl">
                   {solution.desc}
                 </p>
-
-                {/* Features */}
-                <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                  {solution.features.map((feature, i) => (
-                    <div key={i} className="p-4 rounded-xl bg-white/5 border border-white/10">
-                      <div className="font-semibold text-white mb-1">{feature.title}</div>
-                      <div className="text-sm text-white/50">{feature.desc}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Stats */}
-                <div className="flex gap-8">
-                  {solution.stats.map((stat, i) => (
-                    <div key={i}>
-                      <div className="text-3xl font-bold" style={{ color: solution.color }}>{stat.value}</div>
-                      <div className="text-white/50 text-sm">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
               </div>
+              <div className="flex gap-6">
+                {solution.stats.map((stat, i) => (
+                  <div key={i} className="text-center">
+                    <div className="text-2xl font-bold" style={{ color: solution.color }}>{stat.value}</div>
+                    <div className="text-white/50 text-sm">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-              {/* Visual */}
-              <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                <div className={`relative rounded-3xl p-8 lg:p-12 bg-gradient-to-br ${solution.bgColor} overflow-hidden`}>
-                  {/* Background pattern */}
-                  <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl" />
-                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full blur-3xl" />
+            {/* Categories */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {solution.categories.map((cat, i) => (
+                <span key={i} className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/70 text-sm hover:bg-white/10 hover:text-white cursor-pointer transition-all">
+                  {cat}
+                </span>
+              ))}
+            </div>
+
+            {/* Provider Cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+              {solution.providers.map((provider, i) => (
+                <div key={i} className="group bg-white/5 rounded-2xl border border-white/10 overflow-hidden hover:border-white/20 hover:bg-white/[0.07] transition-all">
+                  {/* Card Header with gradient */}
+                  <div className={`h-24 bg-gradient-to-br ${solution.bgColor} p-5 relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-black/20" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+                    <div className="relative flex justify-between items-start">
+                      <div>
+                        <h3 className="text-white font-bold text-lg">{provider.name}</h3>
+                        <p className="text-white/80 text-sm">{provider.category}</p>
+                      </div>
+                      <div className="flex items-center gap-1 bg-black/30 px-2 py-1 rounded-lg">
+                        <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                        <span className="text-white font-medium">{provider.rating}</span>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Icon display */}
-                  <div className="relative">
-                    <div className="w-24 h-24 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center mb-6">
-                      <solution.icon className="w-12 h-12 text-white" />
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-white mb-2">{solution.title}</h3>
-                    <p className="text-white/80 mb-6">{solution.stats[0].value} {solution.stats[0].label}</p>
-
-                    {/* Sample cards */}
-                    <div className="space-y-3">
-                      {[1, 2, 3].map((item) => (
-                        <div key={item} className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur">
-                          <div className="w-10 h-10 rounded-lg bg-white/20" />
-                          <div className="flex-1">
-                            <div className="h-3 w-24 bg-white/30 rounded" />
-                            <div className="h-2 w-16 bg-white/20 rounded mt-2" />
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                            <span className="text-white/80 text-sm">4.{8 + item}</span>
-                          </div>
-                        </div>
+                  {/* Card Body */}
+                  <div className="p-5">
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {provider.tags.map((tag, j) => (
+                        <span key={j} className="px-2 py-1 rounded-md text-xs font-medium" style={{ backgroundColor: `${solution.color}20`, color: solution.color }}>
+                          {tag}
+                        </span>
                       ))}
                     </div>
+
+                    {/* Info */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2 text-white/50 text-sm">
+                        <MapPin className="w-4 h-4" />
+                        {provider.location}
+                      </div>
+                      <div className="text-white/50 text-sm">
+                        {provider.reviews} değerlendirme
+                      </div>
+                    </div>
+
+                    {/* Price & CTA */}
+                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                      <div>
+                        <div className="text-white/50 text-xs">Başlangıç fiyatı</div>
+                        <div className="text-white font-bold text-lg">{provider.price}</div>
+                      </div>
+                      <button className="px-4 py-2 rounded-lg font-medium text-white transition-all hover:scale-105" style={{ backgroundColor: solution.color }}>
+                        İncele
+                      </button>
+                    </div>
                   </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Features Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+              {solution.features.map((feature, i) => (
+                <div key={i} className="p-5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/[0.07] transition-all">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${solution.color}20` }}>
+                    <Check className="w-5 h-5" style={{ color: solution.color }} />
+                  </div>
+                  <div className="font-semibold text-white mb-1">{feature.title}</div>
+                  <div className="text-sm text-white/50">{feature.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center p-8 rounded-2xl" style={{ backgroundColor: `${solution.color}10`, border: `1px solid ${solution.color}30` }}>
+              <div className="text-center sm:text-left">
+                <div className="text-white font-semibold text-lg mb-1">
+                  {solution.title} hizmeti mi arıyorsunuz?
+                </div>
+                <div className="text-white/60 text-sm">
+                  Size en uygun tedarikçileri bulmak için hemen başvurun
+                </div>
               </div>
+              <button
+                onClick={onHemenBasla}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white whitespace-nowrap hover:scale-105 transition-all"
+                style={{ backgroundColor: solution.color }}
+              >
+                Teklif Al
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </div>
@@ -1507,7 +1591,7 @@ export default function Home() {
         onNasilCalisir={() => setIsNasilCalisirOpen(true)}
       />
       <SolutionsSection />
-      <SolutionDetailsSection />
+      <SolutionDetailsSection onHemenBasla={() => setIsHemenBaslaOpen(true)} />
       <AppShowcaseSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
       <TestimonialsSection />
       <FAQSection />
