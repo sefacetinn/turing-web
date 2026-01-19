@@ -623,7 +623,7 @@ function HeroSection({ onHemenBasla, onNasilCalisir }) {
                     <div className="w-28 h-7 bg-black rounded-full" />
                   </div>
                   {/* Screen Content */}
-                  <Image src="/app-screenshot-1.png" alt="Turing App" fill className="object-cover" />
+                  <Image src="/screen-events.png" alt="Turing App - Etkinliklerim" fill className="object-cover" />
                 </div>
               </div>
               {/* Glow effect */}
@@ -634,7 +634,7 @@ function HeroSection({ onHemenBasla, onNasilCalisir }) {
             <div className="absolute -left-16 top-20 z-10 transform -rotate-12">
               <div className="relative w-[200px] h-[420px] rounded-[2rem] bg-gradient-to-b from-gray-800 to-gray-900 p-1.5 shadow-xl opacity-80">
                 <div className="w-full h-full rounded-[1.75rem] overflow-hidden bg-[#1a1a2e] relative">
-                  <Image src="/app-screenshot-2.png" alt="Turing App" fill className="object-cover" />
+                  <Image src="/screen-event-detail.png" alt="Turing App - Etkinlik Detay" fill className="object-cover" />
                 </div>
               </div>
             </div>
@@ -643,7 +643,7 @@ function HeroSection({ onHemenBasla, onNasilCalisir }) {
             <div className="absolute -right-12 top-32 z-10 transform rotate-12">
               <div className="relative w-[200px] h-[420px] rounded-[2rem] bg-gradient-to-b from-gray-800 to-gray-900 p-1.5 shadow-xl opacity-80">
                 <div className="w-full h-full rounded-[1.75rem] overflow-hidden bg-[#1a1a2e] relative">
-                  <Image src="/app-screenshot-3.png" alt="Turing App" fill className="object-cover" />
+                  <Image src="/screen-messages.png" alt="Turing App - Mesajlar" fill className="object-cover" />
                 </div>
               </div>
             </div>
@@ -670,95 +670,18 @@ function HeroSection({ onHemenBasla, onNasilCalisir }) {
 // ============================================
 function AppGallerySection() {
   const galleryScreens = [
-    {
-      id: 1,
-      title: 'Ana Sayfa',
-      desc: 'Popüler etkinlikler ve öneriler',
-      gradient: 'from-blue-600 to-purple-600',
-      icon: HomeIcon,
-      mockup: {
-        header: 'Keşfet',
-        cards: ['Festival 2026', 'Düğün Paketi', 'Kurumsal Etkinlik']
-      }
-    },
-    {
-      id: 2,
-      title: 'Kategori Seçimi',
-      desc: 'Tüm hizmet kategorileri',
-      gradient: 'from-purple-600 to-pink-600',
-      icon: Grid,
-      mockup: {
-        header: 'Kategoriler',
-        cards: ['DJ & Müzik', 'Mekan', 'Catering', 'Fotoğraf', 'Dekorasyon', 'Işık & Ses']
-      }
-    },
-    {
-      id: 3,
-      title: 'Hizmet Detayı',
-      desc: 'Tedarikçi profil sayfası',
-      gradient: 'from-pink-600 to-red-600',
-      icon: User,
-      mockup: {
-        header: 'DJ Emre',
-        rating: 4.9,
-        price: '₺8,000'
-      }
-    },
-    {
-      id: 4,
-      title: 'Teklif Karşılaştırma',
-      desc: 'Yan yana teklif analizi',
-      gradient: 'from-emerald-600 to-teal-600',
-      icon: ArrowLeftRight,
-      mockup: {
-        header: 'Teklifleri Karşılaştır',
-        items: ['Fiyat', 'Süre', 'Ekipman', 'Referans']
-      }
-    },
-    {
-      id: 5,
-      title: 'Takvim',
-      desc: 'Etkinlik planlayıcı',
-      gradient: 'from-orange-600 to-amber-600',
-      icon: Calendar,
-      mockup: {
-        header: 'Takvim',
-        month: 'Ocak 2026'
-      }
-    },
-    {
-      id: 6,
-      title: 'Mesajlar',
-      desc: 'Anlık iletişim',
-      gradient: 'from-cyan-600 to-blue-600',
-      icon: MessageCircle,
-      mockup: {
-        header: 'Mesajlar',
-        chats: ['Pro Sound', 'DJ Emre', 'Lezzet Catering']
-      }
-    },
-    {
-      id: 7,
-      title: 'Ödeme',
-      desc: 'Güvenli ödeme sistemi',
-      gradient: 'from-green-600 to-emerald-600',
-      icon: CreditCard,
-      mockup: {
-        header: 'Ödeme',
-        amount: '₺45,000'
-      }
-    },
-    {
-      id: 8,
-      title: 'Bildirimler',
-      desc: 'Anlık güncellemeler',
-      gradient: 'from-violet-600 to-purple-600',
-      icon: Bell,
-      mockup: {
-        header: 'Bildirimler',
-        count: 5
-      }
-    }
+    { id: 1, title: 'Etkinliklerim', desc: 'Tüm etkinliklerin tek yerde', image: '/screen-events.png' },
+    { id: 2, title: 'Etkinlik Detay', desc: 'İlerleme ve bütçe takibi', image: '/screen-event-detail.png' },
+    { id: 3, title: 'Tekliflerim', desc: 'Gelen teklifleri yönet', image: '/screen-offers.png' },
+    { id: 4, title: 'Mesajlar', desc: 'Anlık iletişim', image: '/screen-messages.png' },
+    { id: 5, title: 'Profil', desc: 'Hesap ve şirket bilgileri', image: '/screen-profile.png' },
+    { id: 6, title: 'Ekip Yönetimi', desc: 'Takım üyelerini yönet', image: '/screen-team.png' },
+    { id: 7, title: 'Değerlendirmeler', desc: 'Puanlar ve yorumlar', image: '/screen-reviews.png' },
+    { id: 8, title: 'Booking', desc: 'Hizmet sağlayıcı bul', image: '/screen-booking.png' },
+    { id: 9, title: 'Sağlayıcı Dashboard', desc: 'Tedarikçi ana sayfası', image: '/screen-provider-dashboard.png' },
+    { id: 10, title: 'İşlerim', desc: 'Aktif işleri takip et', image: '/screen-jobs.png' },
+    { id: 11, title: 'Tedarikçi Teklifleri', desc: 'Gelen talepler', image: '/screen-supplier-offers.png' },
+    { id: 12, title: 'Talep Detayı', desc: 'Teklif ver ve yönet', image: '/screen-request-detail.png' },
   ]
 
   return (
@@ -773,7 +696,7 @@ function AppGallerySection() {
             Tüm Özellikler Tek Uygulamada
           </h2>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Etkinlik planlamasının her adımı için tasarlanmış kapsamlı bir mobil deneyim.
+            Organizatörler ve tedarikçiler için tasarlanmış kapsamlı bir mobil deneyim.
           </p>
         </div>
       </div>
@@ -790,132 +713,8 @@ function AppGallerySection() {
               {/* Phone Mockup */}
               <div className="relative w-[220px] h-[440px] rounded-[2.5rem] bg-gradient-to-b from-gray-700 to-gray-900 p-1.5 shadow-xl group-hover:shadow-2xl group-hover:shadow-purple-500/20 transition-all duration-500 group-hover:-translate-y-2">
                 <div className="w-full h-full rounded-[2rem] overflow-hidden bg-[#0a0a0a] relative">
-                  {/* Dynamic Island */}
-                  <div className="absolute top-0 left-0 right-0 flex justify-center pt-2 z-20">
-                    <div className="w-20 h-6 bg-black rounded-full" />
-                  </div>
-
-                  {/* Screen Content - Mockup UI */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${screen.gradient} opacity-20`} />
-                  <div className="absolute inset-0 p-4 pt-12">
-                    {/* Header */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="text-white font-semibold text-sm">{screen.mockup.header}</div>
-                      <screen.icon className="w-4 h-4 text-white/60" />
-                    </div>
-
-                    {/* Dynamic Content based on screen type */}
-                    {screen.mockup.cards && (
-                      <div className="space-y-2">
-                        {screen.mockup.cards.slice(0, 4).map((card, i) => (
-                          <div key={i} className={`p-3 rounded-xl bg-white/10 backdrop-blur border border-white/10`}>
-                            <div className="text-white/80 text-xs">{card}</div>
-                          </div>
-                        ))}
-                        {screen.mockup.cards.length > 4 && (
-                          <div className="text-center text-white/40 text-xs">+{screen.mockup.cards.length - 4} daha</div>
-                        )}
-                      </div>
-                    )}
-
-                    {screen.mockup.rating && (
-                      <div className="space-y-3">
-                        <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${screen.gradient} mx-auto flex items-center justify-center`}>
-                          <User className="w-8 h-8 text-white" />
-                        </div>
-                        <div className="text-center">
-                          <div className="flex items-center justify-center gap-1 mb-1">
-                            <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                            <span className="text-white text-xs">{screen.mockup.rating}</span>
-                          </div>
-                          <div className="text-white/60 text-xs">{screen.mockup.price}</div>
-                        </div>
-                        <button className={`w-full py-2 rounded-lg bg-gradient-to-r ${screen.gradient} text-white text-xs font-medium`}>
-                          Teklif Al
-                        </button>
-                      </div>
-                    )}
-
-                    {screen.mockup.items && (
-                      <div className="space-y-2">
-                        {screen.mockup.items.map((item, i) => (
-                          <div key={i} className="flex items-center justify-between p-2 rounded-lg bg-white/5">
-                            <span className="text-white/70 text-xs">{item}</span>
-                            <div className="flex gap-2">
-                              <div className="w-8 h-4 rounded bg-white/20" />
-                              <div className="w-8 h-4 rounded bg-white/20" />
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {screen.mockup.month && (
-                      <div className="space-y-3">
-                        <div className="text-center text-white/60 text-xs">{screen.mockup.month}</div>
-                        <div className="grid grid-cols-7 gap-1">
-                          {[...Array(31)].map((_, i) => (
-                            <div key={i} className={`w-5 h-5 rounded text-[8px] flex items-center justify-center ${
-                              [5, 12, 18, 25].includes(i) ? `bg-gradient-to-r ${screen.gradient} text-white` : 'text-white/40'
-                            }`}>
-                              {i + 1}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {screen.mockup.chats && (
-                      <div className="space-y-2">
-                        {screen.mockup.chats.map((chat, i) => (
-                          <div key={i} className="flex items-center gap-2 p-2 rounded-xl bg-white/5">
-                            <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${screen.gradient} flex items-center justify-center`}>
-                              <span className="text-white text-xs font-bold">{chat[0]}</span>
-                            </div>
-                            <div className="flex-1">
-                              <div className="text-white text-xs font-medium">{chat}</div>
-                              <div className="text-white/40 text-[10px]">Son mesaj...</div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {screen.mockup.amount && (
-                      <div className="space-y-4 text-center pt-4">
-                        <div className="text-white/60 text-xs">Toplam Tutar</div>
-                        <div className="text-white text-2xl font-bold">{screen.mockup.amount}</div>
-                        <div className="space-y-2">
-                          <div className="p-3 rounded-xl bg-white/5 flex items-center gap-3">
-                            <CreditCard className="w-5 h-5 text-white/60" />
-                            <span className="text-white/70 text-xs">**** 4242</span>
-                          </div>
-                          <button className={`w-full py-3 rounded-xl bg-gradient-to-r ${screen.gradient} text-white text-sm font-medium`}>
-                            Ödemeyi Tamamla
-                          </button>
-                        </div>
-                      </div>
-                    )}
-
-                    {screen.mockup.count && (
-                      <div className="space-y-2">
-                        {[...Array(screen.mockup.count)].map((_, i) => (
-                          <div key={i} className="flex items-center gap-2 p-2 rounded-xl bg-white/5">
-                            <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${screen.gradient} flex items-center justify-center`}>
-                              <Bell className="w-4 h-4 text-white" />
-                            </div>
-                            <div className="flex-1">
-                              <div className="text-white text-xs">Yeni bildirim</div>
-                              <div className="text-white/40 text-[10px]">2 dk önce</div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Home indicator */}
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-white/30 rounded-full" />
+                  {/* Real Screenshot */}
+                  <Image src={screen.image} alt={screen.title} fill className="object-cover object-top" />
                 </div>
               </div>
 
@@ -952,36 +751,36 @@ function AppShowcaseSection({ onEarlyAccess }) {
       id: 1,
       title: 'Hizmet Keşfet',
       desc: 'Yüzlerce hizmet sağlayıcı arasından ihtiyacınıza en uygun olanı bulun.',
-      image: '/app-screenshot-1.png',
+      image: '/screen-booking.png',
       features: ['Akıllı filtreleme', 'Konum bazlı arama', 'Puan sıralaması']
     },
     {
       id: 2,
       title: 'Teklif Al',
       desc: 'Birden fazla tedarikçiden teklif alın, karşılaştırın ve en iyisini seçin.',
-      image: '/app-screenshot-2.png',
+      image: '/screen-offers.png',
       features: ['Anlık teklif', 'Fiyat karşılaştırma', 'Pazarlık imkanı']
     },
     {
       id: 3,
-      title: 'Yönet',
+      title: 'Etkinlik Yönet',
       desc: 'Tüm etkinlik süreçlerinizi tek bir yerden takip edin.',
-      image: '/app-screenshot-3.png',
-      features: ['Takvim entegrasyonu', 'Görev yönetimi', 'İlerleme takibi']
+      image: '/screen-event-detail.png',
+      features: ['İlerleme takibi', 'Bütçe kontrolü', 'Hizmet yönetimi']
     },
     {
       id: 4,
-      title: 'İletişim',
+      title: 'Mesajlaş',
       desc: 'Tedarikçilerle anlık mesajlaşın ve detayları netleştirin.',
-      image: '/app-screenshot-1.png',
-      features: ['Anlık mesajlaşma', 'Dosya paylaşımı', 'Görüntülü görüşme']
+      image: '/screen-messages.png',
+      features: ['Anlık mesajlaşma', 'Dosya paylaşımı', 'Bildirimler']
     },
     {
       id: 5,
-      title: 'Ödeme',
-      desc: 'Güvenli emanet sistemi ile ödemelerinizi koruma altına alın.',
-      image: '/app-screenshot-2.png',
-      features: ['Emanet sistemi', 'Taksit seçenekleri', 'Fatura yönetimi']
+      title: 'Profil & Ekip',
+      desc: 'Profilinizi yönetin ve ekibinizi organize edin.',
+      image: '/screen-profile.png',
+      features: ['Ekip yönetimi', 'Değerlendirmeler', 'Sözleşmeler']
     }
   ]
 
