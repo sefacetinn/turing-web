@@ -56,55 +56,55 @@ function HemenBaslaModal({ isOpen, onClose }) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 md:p-4">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={resetModal} />
 
-      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white shadow-2xl">
-        <button onClick={resetModal} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-200 transition-all z-10">
-          <X className="w-5 h-5" />
+      <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-xl md:rounded-2xl bg-white shadow-2xl">
+        <button onClick={resetModal} className="absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-200 transition-all z-10">
+          <X className="w-4 h-4 md:w-5 md:h-5" />
         </button>
 
         {isSuccess ? (
-          <div className="p-12 text-center">
-            <div className="w-20 h-20 rounded-full bg-emerald-500 flex items-center justify-center mx-auto mb-6">
-              <Check className="w-10 h-10 text-white" />
+          <div className="p-8 md:p-12 text-center">
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-emerald-500 flex items-center justify-center mx-auto mb-4 md:mb-6">
+              <Check className="w-8 h-8 md:w-10 md:h-10 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">Başvurunuz Alındı!</h3>
-            <p className="text-gray-600 mb-6">En kısa sürede sizinle iletişime geçeceğiz.</p>
-            <button onClick={resetModal} className="px-8 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">Başvurunuz Alındı!</h3>
+            <p className="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">En kısa sürede sizinle iletişime geçeceğiz.</p>
+            <button onClick={resetModal} className="px-6 py-2.5 md:px-8 md:py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors text-sm md:text-base">
               Tamam
             </button>
           </div>
         ) : (
-          <div className="p-8">
-            <div className="flex items-center justify-center gap-2 mb-8">
+          <div className="p-5 md:p-8">
+            <div className="flex items-center justify-center gap-2 mb-6 md:mb-8">
               {[1, 2, 3].map((s) => (
-                <div key={s} className={`h-2 rounded-full transition-all duration-500 ${s === step ? 'w-12 bg-blue-600' : s < step ? 'w-8 bg-blue-300' : 'w-8 bg-gray-200'}`} />
+                <div key={s} className={`h-1.5 md:h-2 rounded-full transition-all duration-500 ${s === step ? 'w-8 md:w-12 bg-blue-600' : s < step ? 'w-6 md:w-8 bg-blue-300' : 'w-6 md:w-8 bg-gray-200'}`} />
               ))}
             </div>
 
             {step === 1 && (
               <div className="animate-fade-in">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Turing'e Hoş Geldiniz</h3>
-                  <p className="text-gray-600">Hangi rolde katılmak istiyorsunuz?</p>
+                <div className="text-center mb-6 md:mb-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Turing'e Hoş Geldiniz</h3>
+                  <p className="text-gray-600 text-sm md:text-base">Hangi rolde katılmak istiyorsunuz?</p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <button onClick={() => { setUserType('organizer'); setStep(2) }} className="group p-6 rounded-xl text-left border-2 border-gray-200 hover:border-blue-500 transition-all">
-                    <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4 group-hover:bg-blue-500 transition-colors">
-                      <Calendar className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                  <button onClick={() => { setUserType('organizer'); setStep(2) }} className="group p-4 md:p-6 rounded-xl text-left border-2 border-gray-200 hover:border-blue-500 transition-all active:scale-[0.98]">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-blue-500 transition-colors">
+                      <Calendar className="w-6 h-6 md:w-7 md:h-7 text-blue-600 group-hover:text-white transition-colors" />
                     </div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-1">Organizatörüm</h4>
-                    <p className="text-gray-500 text-sm">Etkinlik düzenliyorum, hizmet sağlayıcı arıyorum</p>
+                    <h4 className="text-base md:text-lg font-bold text-gray-900 mb-1">Organizatörüm</h4>
+                    <p className="text-gray-500 text-xs md:text-sm">Etkinlik düzenliyorum, hizmet sağlayıcı arıyorum</p>
                   </button>
 
-                  <button onClick={() => { setUserType('provider'); setStep(2) }} className="group p-6 rounded-xl text-left border-2 border-gray-200 hover:border-emerald-500 transition-all">
-                    <div className="w-14 h-14 rounded-xl bg-emerald-100 flex items-center justify-center mb-4 group-hover:bg-emerald-500 transition-colors">
-                      <Briefcase className="w-7 h-7 text-emerald-600 group-hover:text-white transition-colors" />
+                  <button onClick={() => { setUserType('provider'); setStep(2) }} className="group p-4 md:p-6 rounded-xl text-left border-2 border-gray-200 hover:border-emerald-500 transition-all active:scale-[0.98]">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-emerald-100 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-emerald-500 transition-colors">
+                      <Briefcase className="w-6 h-6 md:w-7 md:h-7 text-emerald-600 group-hover:text-white transition-colors" />
                     </div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-1">Hizmet Sağlayıcıyım</h4>
-                    <p className="text-gray-500 text-sm">Etkinliklere hizmet sunuyorum</p>
+                    <h4 className="text-base md:text-lg font-bold text-gray-900 mb-1">Hizmet Sağlayıcıyım</h4>
+                    <p className="text-gray-500 text-xs md:text-sm">Etkinliklere hizmet sunuyorum</p>
                   </button>
                 </div>
               </div>
@@ -112,70 +112,70 @@ function HemenBaslaModal({ isOpen, onClose }) {
 
             {step === 2 && (
               <div className="animate-fade-in">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">İletişim Bilgileri</h3>
-                  <p className="text-gray-600">Size ulaşabilmemiz için bilgilerinizi girin</p>
+                <div className="text-center mb-6 md:mb-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">İletişim Bilgileri</h3>
+                  <p className="text-gray-600 text-sm md:text-base">Size ulaşabilmemiz için bilgilerinizi girin</p>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-3 md:space-y-4">
+                  <div className="grid md:grid-cols-2 gap-3 md:gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Ad Soyad</label>
-                      <input type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="Adınız Soyadınız" />
+                      <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Ad Soyad</label>
+                      <input type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm md:text-base" placeholder="Adınız Soyadınız" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Şirket</label>
-                      <input type="text" value={formData.company} onChange={(e) => setFormData({...formData, company: e.target.value})} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="Şirket Adı" />
+                      <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Şirket</label>
+                      <input type="text" value={formData.company} onChange={(e) => setFormData({...formData, company: e.target.value})} className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm md:text-base" placeholder="Şirket Adı" />
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid md:grid-cols-2 gap-3 md:gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">E-posta</label>
-                      <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="ornek@email.com" />
+                      <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">E-posta</label>
+                      <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm md:text-base" placeholder="ornek@email.com" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
-                      <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="0555 555 55 55" />
+                      <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Telefon</label>
+                      <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm md:text-base" placeholder="0555 555 55 55" />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Şehir</label>
-                    <select value={formData.city} onChange={(e) => setFormData({...formData, city: e.target.value})} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Şehir</label>
+                    <select value={formData.city} onChange={(e) => setFormData({...formData, city: e.target.value})} className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm md:text-base">
                       <option value="">Şehir Seçin</option>
                       {cities.map(city => <option key={city} value={city}>{city}</option>)}
                     </select>
                   </div>
                 </div>
 
-                <div className="flex gap-3 mt-8">
-                  <button onClick={() => setStep(1)} className="px-6 py-3 rounded-lg font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">Geri</button>
-                  <button onClick={() => setStep(3)} disabled={!formData.name || !formData.email} className="flex-1 px-6 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Devam</button>
+                <div className="flex gap-2 md:gap-3 mt-6 md:mt-8">
+                  <button onClick={() => setStep(1)} className="px-4 py-2.5 md:px-6 md:py-3 rounded-lg font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors text-sm md:text-base">Geri</button>
+                  <button onClick={() => setStep(3)} disabled={!formData.name || !formData.email} className="flex-1 px-4 py-2.5 md:px-6 md:py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm md:text-base">Devam</button>
                 </div>
               </div>
             )}
 
             {step === 3 && (
               <div className="animate-fade-in">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <div className="text-center mb-6 md:mb-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
                     {userType === 'provider' ? 'Hizmet Kategorisi' : 'İlgilendiğiniz Hizmetler'}
                   </h3>
-                  <p className="text-gray-600">Bir kategori seçin</p>
+                  <p className="text-gray-600 text-sm md:text-base">Bir kategori seçin</p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
                   {categories.map((cat) => (
-                    <button key={cat.id} onClick={() => setFormData({...formData, category: cat.id})} className={`p-4 rounded-xl border-2 transition-all ${formData.category === cat.id ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'}`}>
-                      <cat.icon className={`w-8 h-8 mx-auto mb-2 ${formData.category === cat.id ? 'text-blue-600' : 'text-gray-400'}`} />
-                      <span className={`text-sm font-medium ${formData.category === cat.id ? 'text-blue-600' : 'text-gray-600'}`}>{cat.name}</span>
+                    <button key={cat.id} onClick={() => setFormData({...formData, category: cat.id})} className={`p-3 md:p-4 rounded-xl border-2 transition-all active:scale-[0.98] ${formData.category === cat.id ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'}`}>
+                      <cat.icon className={`w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 ${formData.category === cat.id ? 'text-blue-600' : 'text-gray-400'}`} />
+                      <span className={`text-xs md:text-sm font-medium ${formData.category === cat.id ? 'text-blue-600' : 'text-gray-600'}`}>{cat.name}</span>
                     </button>
                   ))}
                 </div>
 
-                <div className="flex gap-3 mt-8">
-                  <button onClick={() => setStep(2)} className="px-6 py-3 rounded-lg font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">Geri</button>
-                  <button onClick={handleSubmit} disabled={!formData.category || isSubmitting} className="flex-1 px-6 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 transition-colors flex items-center justify-center gap-2">
-                    {isSubmitting ? <><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />Gönderiliyor...</> : 'Başvuruyu Tamamla'}
+                <div className="flex gap-2 md:gap-3 mt-6 md:mt-8">
+                  <button onClick={() => setStep(2)} className="px-4 py-2.5 md:px-6 md:py-3 rounded-lg font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors text-sm md:text-base">Geri</button>
+                  <button onClick={handleSubmit} disabled={!formData.category || isSubmitting} className="flex-1 px-4 py-2.5 md:px-6 md:py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 transition-colors flex items-center justify-center gap-2 text-sm md:text-base">
+                    {isSubmitting ? <><div className="w-4 h-4 md:w-5 md:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />Gönderiliyor...</> : 'Başvuruyu Tamamla'}
                   </button>
                 </div>
               </div>
@@ -214,44 +214,44 @@ function NasilCalisirModal({ isOpen, onClose }) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 md:p-4">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
 
-      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white shadow-2xl">
-        <button onClick={onClose} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-200 transition-all z-10">
-          <X className="w-5 h-5" />
+      <div className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-xl md:rounded-2xl bg-white shadow-2xl">
+        <button onClick={onClose} className="absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-200 transition-all z-10">
+          <X className="w-4 h-4 md:w-5 md:h-5" />
         </button>
 
-        <div className="p-8 md:p-12">
-          <div className="text-center mb-10">
-            <h3 className="text-3xl font-bold text-gray-900 mb-3">Turing Nasıl Çalışır?</h3>
-            <p className="text-gray-600">4 adımda etkinliğinizi planlayın</p>
+        <div className="p-5 md:p-8 lg:p-12">
+          <div className="text-center mb-6 md:mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-3">Turing Nasıl Çalışır?</h3>
+            <p className="text-gray-600 text-sm md:text-base">4 adımda etkinliğinizi planlayın</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-3">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+            <div className="space-y-2 md:space-y-3 order-2 md:order-1">
               {steps.map((step, i) => (
-                <button key={i} onClick={() => { setActiveStep(i); setIsPlaying(false) }} className={`w-full p-4 rounded-xl text-left transition-all ${activeStep === i ? 'bg-gray-100 shadow-sm' : 'hover:bg-gray-50'}`}>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: activeStep === i ? step.color : '#F3F4F6' }}>
-                      <step.icon className="w-6 h-6" style={{ color: activeStep === i ? 'white' : '#9CA3AF' }} />
+                <button key={i} onClick={() => { setActiveStep(i); setIsPlaying(false) }} className={`w-full p-3 md:p-4 rounded-xl text-left transition-all ${activeStep === i ? 'bg-gray-100 shadow-sm' : 'hover:bg-gray-50'}`}>
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: activeStep === i ? step.color : '#F3F4F6' }}>
+                      <step.icon className="w-5 h-5 md:w-6 md:h-6" style={{ color: activeStep === i ? 'white' : '#9CA3AF' }} />
                     </div>
                     <div>
-                      <h4 className={`font-bold ${activeStep === i ? 'text-gray-900' : 'text-gray-500'}`}>{step.title}</h4>
-                      <p className={`text-sm ${activeStep === i ? 'text-gray-600' : 'text-gray-400'}`}>{step.desc}</p>
+                      <h4 className={`font-bold text-sm md:text-base ${activeStep === i ? 'text-gray-900' : 'text-gray-500'}`}>{step.title}</h4>
+                      <p className={`text-xs md:text-sm ${activeStep === i ? 'text-gray-600' : 'text-gray-400'}`}>{step.desc}</p>
                     </div>
                   </div>
                 </button>
               ))}
             </div>
 
-            <div className="flex justify-center">
-              <div className="relative w-64 h-[500px] rounded-[2.5rem] bg-gray-900 p-2 shadow-2xl">
-                <div className="w-full h-full rounded-[2rem] overflow-hidden bg-gray-800">
-                  <div className="absolute top-0 left-0 right-0 flex justify-center pt-2 z-10">
-                    <div className="w-24 h-6 bg-black rounded-full" />
+            <div className="flex justify-center order-1 md:order-2">
+              <div className="relative w-48 h-[380px] md:w-64 md:h-[500px] rounded-[2rem] md:rounded-[2.5rem] bg-gray-900 p-1.5 md:p-2 shadow-2xl">
+                <div className="w-full h-full rounded-[1.75rem] md:rounded-[2rem] overflow-hidden bg-gray-800">
+                  <div className="absolute top-0 left-0 right-0 flex justify-center pt-1.5 md:pt-2 z-10">
+                    <div className="w-16 h-4 md:w-24 md:h-6 bg-black rounded-full" />
                   </div>
-                  <div className="p-5 pt-12 h-full">
+                  <div className="p-3 pt-8 md:p-5 md:pt-12 h-full">
                     <div className="flex items-center gap-2 mb-5">
                       <Image src="/turing-icon.png" alt="Turing" width={28} height={28} />
                       <span className="text-white font-semibold text-sm">Turing</span>
@@ -334,8 +334,8 @@ function NasilCalisirModal({ isOpen, onClose }) {
             </div>
           </div>
 
-          <div className="text-center mt-8">
-            <button onClick={onClose} className="px-8 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+          <div className="text-center mt-6 md:mt-8">
+            <button onClick={onClose} className="px-6 py-2.5 md:px-8 md:py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors text-sm md:text-base">
               Hemen Başla
             </button>
           </div>
@@ -376,58 +376,58 @@ function EarlyAccessModal({ isOpen, onClose }) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 md:p-4">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={resetModal} />
-      <div className="relative w-full max-w-md rounded-2xl bg-white shadow-2xl overflow-hidden">
-        <button onClick={resetModal} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-200 transition-all z-10">
-          <X className="w-5 h-5" />
+      <div className="relative w-full max-w-md rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
+        <button onClick={resetModal} className="absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-200 transition-all z-10">
+          <X className="w-4 h-4 md:w-5 md:h-5" />
         </button>
 
         {isSuccess ? (
-          <div className="p-10 text-center">
-            <div className="w-20 h-20 rounded-full bg-emerald-500 flex items-center justify-center mx-auto mb-6">
-              <Check className="w-10 h-10 text-white" />
+          <div className="p-8 md:p-10 text-center">
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-emerald-500 flex items-center justify-center mx-auto mb-4 md:mb-6">
+              <Check className="w-8 h-8 md:w-10 md:h-10 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">Kayıt Başarılı!</h3>
-            <p className="text-gray-600 mb-6">Uygulama yayınlandığında sizi bilgilendireceğiz.</p>
-            <button onClick={resetModal} className="px-8 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">Kayıt Başarılı!</h3>
+            <p className="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">Uygulama yayınlandığında sizi bilgilendireceğiz.</p>
+            <button onClick={resetModal} className="px-6 py-2.5 md:px-8 md:py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors text-sm md:text-base">
               Tamam
             </button>
           </div>
         ) : (
-          <div className="p-8">
-            <div className="text-center mb-8">
-              <div className="w-16 h-16 rounded-xl bg-blue-600 flex items-center justify-center mx-auto mb-4">
-                <Rocket className="w-8 h-8 text-white" />
+          <div className="p-5 md:p-8">
+            <div className="text-center mb-6 md:mb-8">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-blue-600 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                <Rocket className="w-7 h-7 md:w-8 md:h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Erken Erişim</h3>
-              <p className="text-gray-600 text-sm">Turing uygulamasına ilk erişenlerden olun!</p>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Erken Erişim</h3>
+              <p className="text-gray-600 text-xs md:text-sm">Turing uygulamasına ilk erişenlerden olun!</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Adınız</label>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Adınızı girin" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" required />
+                <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Adınız</label>
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Adınızı girin" className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm md:text-base" required />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">E-posta</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ornek@email.com" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" required />
+                <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">E-posta</label>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ornek@email.com" className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-sm md:text-base" required />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Platform</label>
-                <div className="grid grid-cols-2 gap-3">
-                  <button type="button" onClick={() => setPlatform('ios')} className={`flex items-center justify-center gap-2 py-3 rounded-lg border-2 transition-all ${platform === 'ios' ? 'bg-blue-50 border-blue-500 text-blue-600' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
-                    <Apple className="w-5 h-5" />
-                    <span className="text-sm font-medium">iOS</span>
+                <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Platform</label>
+                <div className="grid grid-cols-2 gap-2 md:gap-3">
+                  <button type="button" onClick={() => setPlatform('ios')} className={`flex items-center justify-center gap-2 py-2.5 md:py-3 rounded-lg border-2 transition-all active:scale-[0.98] ${platform === 'ios' ? 'bg-blue-50 border-blue-500 text-blue-600' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
+                    <Apple className="w-4 h-4 md:w-5 md:h-5" />
+                    <span className="text-xs md:text-sm font-medium">iOS</span>
                   </button>
-                  <button type="button" onClick={() => setPlatform('android')} className={`flex items-center justify-center gap-2 py-3 rounded-lg border-2 transition-all ${platform === 'android' ? 'bg-blue-50 border-blue-500 text-blue-600' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
-                    <Play className="w-5 h-5" />
-                    <span className="text-sm font-medium">Android</span>
+                  <button type="button" onClick={() => setPlatform('android')} className={`flex items-center justify-center gap-2 py-2.5 md:py-3 rounded-lg border-2 transition-all active:scale-[0.98] ${platform === 'android' ? 'bg-blue-50 border-blue-500 text-blue-600' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
+                    <Play className="w-4 h-4 md:w-5 md:h-5" />
+                    <span className="text-xs md:text-sm font-medium">Android</span>
                   </button>
                 </div>
               </div>
-              <button type="submit" disabled={isSubmitting || !email || !name || !platform} className="w-full py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 transition-colors flex items-center justify-center gap-2">
-                {isSubmitting ? <><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />Kaydediliyor...</> : <><Send className="w-5 h-5" />Erken Erişim İste</>}
+              <button type="submit" disabled={isSubmitting || !email || !name || !platform} className="w-full py-2.5 md:py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 transition-colors flex items-center justify-center gap-2 text-sm md:text-base">
+                {isSubmitting ? <><div className="w-4 h-4 md:w-5 md:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />Kaydediliyor...</> : <><Send className="w-4 h-4 md:w-5 md:h-5" />Erken Erişim İste</>}
               </button>
             </form>
           </div>
@@ -531,16 +531,38 @@ function Navbar({ onHemenBasla, onNasilCalisir, onEarlyAccess }) {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t">
-          <div className="p-4 space-y-2">
-            <a href="#cozumler" className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 font-medium">Çözümler</a>
-            <button onClick={() => { onNasilCalisir(); setIsMobileMenuOpen(false) }} className="block w-full text-left px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 font-medium">Nasıl Çalışır</button>
-            <a href="#musteriler" className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 font-medium">Müşteriler</a>
-            <a href="#sss" className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 font-medium">SSS</a>
-            <a href="#iletisim" className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 font-medium">İletişim</a>
-            <hr className="my-2" />
-            <button onClick={() => { onEarlyAccess(); setIsMobileMenuOpen(false) }} className="block w-full text-left px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 font-medium">Erken Erişim</button>
-            <button onClick={() => { onHemenBasla(); setIsMobileMenuOpen(false) }} className="block w-full px-4 py-3 rounded-lg text-white bg-blue-600 hover:bg-blue-700 font-semibold text-center">Bizimle Çalışın</button>
+        <div className="lg:hidden bg-white/95 backdrop-blur-lg border-t animate-slide-down safe-bottom">
+          <div className="p-4 space-y-1 max-h-[70vh] overflow-y-auto">
+            <a href="#cozumler" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-4 rounded-xl text-gray-700 hover:bg-gray-100 font-medium active:bg-gray-200 transition-colors">
+              <Sparkles className="w-5 h-5 text-purple-500" />
+              Çözümler
+            </a>
+            <button onClick={() => { onNasilCalisir(); setIsMobileMenuOpen(false) }} className="flex items-center gap-3 w-full text-left px-4 py-4 rounded-xl text-gray-700 hover:bg-gray-100 font-medium active:bg-gray-200 transition-colors">
+              <Rocket className="w-5 h-5 text-blue-500" />
+              Nasıl Çalışır
+            </button>
+            <a href="#musteriler" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-4 rounded-xl text-gray-700 hover:bg-gray-100 font-medium active:bg-gray-200 transition-colors">
+              <Users className="w-5 h-5 text-green-500" />
+              Müşteriler
+            </a>
+            <a href="#sss" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-4 rounded-xl text-gray-700 hover:bg-gray-100 font-medium active:bg-gray-200 transition-colors">
+              <MessageCircle className="w-5 h-5 text-orange-500" />
+              SSS
+            </a>
+            <a href="#iletisim" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-4 rounded-xl text-gray-700 hover:bg-gray-100 font-medium active:bg-gray-200 transition-colors">
+              <Mail className="w-5 h-5 text-pink-500" />
+              İletişim
+            </a>
+            <div className="pt-2 mt-2 border-t border-gray-100 space-y-2">
+              <button onClick={() => { onEarlyAccess(); setIsMobileMenuOpen(false) }} className="flex items-center justify-center gap-2 w-full px-4 py-4 rounded-xl text-purple-600 bg-purple-50 hover:bg-purple-100 font-semibold active:bg-purple-200 transition-colors">
+                <Bell className="w-5 h-5" />
+                Erken Erişim
+              </button>
+              <button onClick={() => { onHemenBasla(); setIsMobileMenuOpen(false) }} className="flex items-center justify-center gap-2 w-full px-4 py-4 rounded-xl text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 font-semibold shadow-lg active:scale-[0.98] transition-all">
+                <ArrowRight className="w-5 h-5" />
+                Bizimle Çalışın
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -612,7 +634,24 @@ function HeroSection({ onHemenBasla, onNasilCalisir }) {
             </div>
           </div>
 
-          {/* Right - Phone Mockups */}
+          {/* Mobile Phone Mockup */}
+          <div className="flex lg:hidden justify-center mt-12">
+            <div className="relative">
+              <div className="relative w-[200px] h-[400px] rounded-[2.5rem] bg-gradient-to-b from-gray-800 to-gray-900 p-1.5 shadow-2xl">
+                <div className="w-full h-full rounded-[2rem] overflow-hidden bg-black relative">
+                  <Image src="/screen-events.png" alt="Turing App" fill className="object-cover object-top" />
+                </div>
+              </div>
+              {/* Glow */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-[3rem] blur-2xl -z-10" />
+              {/* Badge */}
+              <div className="absolute -top-2 -right-2 px-3 py-1.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-white text-xs font-semibold shadow-lg">
+                Canlı Demo
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Phone Mockups */}
           <div className="hidden lg:flex justify-center items-center relative">
             {/* Main Phone */}
             <div className="relative z-20">
@@ -703,25 +742,25 @@ function AppGallerySection() {
 
       {/* Horizontal Scrolling Gallery */}
       <div className="relative">
-        {/* Gradient fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0f0318] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0f0318] to-transparent z-10 pointer-events-none" />
+        {/* Gradient fade edges - hidden on mobile */}
+        <div className="hidden md:block absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0f0318] to-transparent z-10 pointer-events-none" />
+        <div className="hidden md:block absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0f0318] to-transparent z-10 pointer-events-none" />
 
-        <div className="flex gap-6 overflow-x-auto pb-8 px-6 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <div className="flex gap-4 md:gap-6 overflow-x-auto pb-8 px-4 md:px-6 scrollbar-hide scroll-snap-x" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {galleryScreens.map((screen) => (
-            <div key={screen.id} className="flex-shrink-0 group">
-              {/* Phone Mockup */}
-              <div className="relative w-[220px] h-[440px] rounded-[2.5rem] bg-gradient-to-b from-gray-700 to-gray-900 p-1.5 shadow-xl group-hover:shadow-2xl group-hover:shadow-purple-500/20 transition-all duration-500 group-hover:-translate-y-2">
-                <div className="w-full h-full rounded-[2rem] overflow-hidden bg-[#0a0a0a] relative">
+            <div key={screen.id} className="flex-shrink-0 group scroll-snap-item">
+              {/* Phone Mockup - smaller on mobile */}
+              <div className="relative w-[180px] md:w-[220px] h-[360px] md:h-[440px] rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-b from-gray-700 to-gray-900 p-1 md:p-1.5 shadow-xl group-hover:shadow-2xl group-hover:shadow-purple-500/20 transition-all duration-500 md:group-hover:-translate-y-2">
+                <div className="w-full h-full rounded-[1.75rem] md:rounded-[2rem] overflow-hidden bg-[#0a0a0a] relative">
                   {/* Real Screenshot */}
                   <Image src={screen.image} alt={screen.title} fill className="object-cover object-top" />
                 </div>
               </div>
 
               {/* Label */}
-              <div className="mt-4 text-center">
-                <div className="text-white font-medium text-sm">{screen.title}</div>
-                <div className="text-white/50 text-xs">{screen.desc}</div>
+              <div className="mt-3 md:mt-4 text-center">
+                <div className="text-white font-medium text-xs md:text-sm">{screen.title}</div>
+                <div className="text-white/50 text-[10px] md:text-xs">{screen.desc}</div>
               </div>
             </div>
           ))}
@@ -1426,42 +1465,42 @@ function HowItWorksSection() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#1a0a2e] to-[#0f0318]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-[#1a0a2e] to-[#0f0318]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-10 md:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4 md:mb-6">
             <Rocket className="w-4 h-4 text-blue-400" />
-            <span className="text-blue-400 text-sm font-medium">Nasıl Çalışır?</span>
+            <span className="text-blue-400 text-xs md:text-sm font-medium">Nasıl Çalışır?</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
             4 Adımda Etkinlik Yönetimi
           </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+          <p className="text-sm md:text-lg text-white/60 max-w-2xl mx-auto px-2">
             İster organizatör olun ister tedarikçi, Turing ile işinizi kolaylaştırın.
           </p>
         </div>
 
         {/* For Organizers */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
-              <Building2 className="w-5 h-5 text-white" />
+        <div className="mb-12 md:mb-20">
+          <h3 className="text-lg md:text-2xl font-bold text-white mb-5 md:mb-8 flex items-center gap-2 md:gap-3">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+              <Building2 className="w-4 h-4 md:w-5 md:h-5 text-white" />
             </div>
             Organizatörler İçin
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
             {organizerSteps.map((item, i) => (
               <div key={i} className="relative group">
                 {i < organizerSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-white/20 to-transparent z-0" />
                 )}
-                <div className="relative bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${colorClasses[item.color]} flex items-center justify-center mb-4`}>
-                    <item.icon className="w-6 h-6 text-white" />
+                <div className="relative bg-white/5 rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/10 hover:border-white/20 transition-all md:hover:-translate-y-1 h-full">
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-gradient-to-r ${colorClasses[item.color]} flex items-center justify-center mb-3 md:mb-4`}>
+                    <item.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
-                  <div className="text-white/40 text-sm mb-2">Adım {item.step}</div>
-                  <h4 className="text-white font-semibold text-lg mb-2">{item.title}</h4>
-                  <p className="text-white/60 text-sm">{item.desc}</p>
+                  <div className="text-white/40 text-xs md:text-sm mb-1 md:mb-2">Adım {item.step}</div>
+                  <h4 className="text-white font-semibold text-sm md:text-lg mb-1 md:mb-2">{item.title}</h4>
+                  <p className="text-white/60 text-xs md:text-sm hidden md:block">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -1470,25 +1509,25 @@ function HowItWorksSection() {
 
         {/* For Suppliers */}
         <div>
-          <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 flex items-center justify-center">
-              <Briefcase className="w-5 h-5 text-white" />
+          <h3 className="text-lg md:text-2xl font-bold text-white mb-5 md:mb-8 flex items-center gap-2 md:gap-3">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 flex items-center justify-center">
+              <Briefcase className="w-4 h-4 md:w-5 md:h-5 text-white" />
             </div>
             Tedarikçiler İçin
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
             {supplierSteps.map((item, i) => (
               <div key={i} className="relative group">
                 {i < supplierSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-white/20 to-transparent z-0" />
                 )}
-                <div className="relative bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${colorClasses[item.color]} flex items-center justify-center mb-4`}>
-                    <item.icon className="w-6 h-6 text-white" />
+                <div className="relative bg-white/5 rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/10 hover:border-white/20 transition-all md:hover:-translate-y-1 h-full">
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-gradient-to-r ${colorClasses[item.color]} flex items-center justify-center mb-3 md:mb-4`}>
+                    <item.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
-                  <div className="text-white/40 text-sm mb-2">Adım {item.step}</div>
-                  <h4 className="text-white font-semibold text-lg mb-2">{item.title}</h4>
-                  <p className="text-white/60 text-sm">{item.desc}</p>
+                  <div className="text-white/40 text-xs md:text-sm mb-1 md:mb-2">Adım {item.step}</div>
+                  <h4 className="text-white font-semibold text-sm md:text-lg mb-1 md:mb-2">{item.title}</h4>
+                  <p className="text-white/60 text-xs md:text-sm hidden md:block">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -1561,34 +1600,34 @@ function FeaturesSection() {
   ]
 
   return (
-    <section className="py-24 bg-[#0f0318]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6">
+    <section className="py-16 md:py-24 bg-[#0f0318]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-10 md:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4 md:mb-6">
             <Sparkles className="w-4 h-4 text-purple-400" />
-            <span className="text-purple-400 text-sm font-medium">Platform Özellikleri</span>
+            <span className="text-purple-400 text-xs md:text-sm font-medium">Platform Özellikleri</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
             Etkinlik Yönetiminin Geleceği
           </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+          <p className="text-sm md:text-lg text-white/60 max-w-2xl mx-auto px-2">
             Turing'in sunduğu güçlü özelliklerle etkinliklerinizi daha verimli yönetin.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {features.map((feature, i) => (
-            <div key={i} className="group bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-purple-500/30 transition-all hover:-translate-y-1">
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-colors">
-                  <feature.icon className="w-6 h-6 text-purple-400" />
+            <div key={i} className="group bg-white/5 rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/10 hover:border-purple-500/30 transition-all md:hover:-translate-y-1">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3 md:mb-4 gap-2">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-colors">
+                  <feature.icon className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
                 </div>
-                <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-medium">
+                <span className="px-2 py-0.5 md:px-3 md:py-1 rounded-full bg-purple-500/10 text-purple-400 text-[10px] md:text-xs font-medium self-start">
                   {feature.highlight}
                 </span>
               </div>
-              <h3 className="text-white font-semibold text-lg mb-2">{feature.title}</h3>
-              <p className="text-white/60 text-sm">{feature.desc}</p>
+              <h3 className="text-white font-semibold text-sm md:text-lg mb-1 md:mb-2">{feature.title}</h3>
+              <p className="text-white/60 text-xs md:text-sm line-clamp-2 md:line-clamp-none">{feature.desc}</p>
             </div>
           ))}
         </div>
@@ -1628,12 +1667,12 @@ function StatsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-6">
           {stats.map((stat, i) => (
-            <div key={i} className="text-center p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</div>
-              <div className="text-white font-medium text-sm mb-1">{stat.label}</div>
-              <div className="text-white/60 text-xs">{stat.desc}</div>
+            <div key={i} className="text-center p-4 md:p-6 rounded-xl md:rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="text-2xl md:text-4xl font-bold text-white mb-1">{stat.value}</div>
+              <div className="text-white font-medium text-xs md:text-sm mb-0.5 md:mb-1">{stat.label}</div>
+              <div className="text-white/60 text-[10px] md:text-xs hidden md:block">{stat.desc}</div>
             </div>
           ))}
         </div>
@@ -1647,68 +1686,64 @@ function StatsSection() {
 // ============================================
 function ForUsersSection({ onHemenBasla }) {
   return (
-    <section className="py-24 bg-[#0f0318]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-8">
+    <section className="py-16 md:py-24 bg-[#0f0318]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
           {/* For Organizers */}
-          <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl p-8 border border-blue-500/20">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mb-6">
-              <Building2 className="w-7 h-7 text-white" />
+          <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-blue-500/20">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mb-4 md:mb-6">
+              <Building2 className="w-6 h-6 md:w-7 md:h-7 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Organizatörler İçin</h3>
-            <p className="text-white/70 mb-6">
-              Konser, festival, kurumsal etkinlik, düğün veya özel parti... Her türlü etkinliğiniz için doğru tedarikçileri bulun, teklifler alın ve tüm süreci tek platformdan yönetin.
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">Organizatörler İçin</h3>
+            <p className="text-white/70 mb-4 md:mb-6 text-sm md:text-base">
+              Konser, festival, kurumsal etkinlik, düğün veya özel parti... Her türlü etkinliğiniz için doğru tedarikçileri bulun.
             </p>
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
               {[
                 'Yüzlerce doğrulanmış tedarikçiye erişim',
                 'Tek tıkla çoklu teklif talebi',
                 'Şeffaf fiyatlandırma ve karşılaştırma',
-                'Dijital sözleşme ve güvenli ödeme',
-                'Bütçe takibi ve raporlama',
-                'Ekip işbirliği araçları'
+                'Dijital sözleşme ve güvenli ödeme'
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-white/80">
-                  <Check className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                <li key={i} className="flex items-center gap-2 md:gap-3 text-white/80 text-sm md:text-base">
+                  <Check className="w-4 h-4 md:w-5 md:h-5 text-blue-400 flex-shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
             <button
               onClick={onHemenBasla}
-              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all"
+              className="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all active:scale-[0.98]"
             >
               Organizatör Olarak Başla
             </button>
           </div>
 
           {/* For Suppliers */}
-          <div className="bg-gradient-to-br from-orange-500/10 to-pink-500/10 rounded-3xl p-8 border border-orange-500/20">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-orange-500 to-pink-500 flex items-center justify-center mb-6">
-              <Briefcase className="w-7 h-7 text-white" />
+          <div className="bg-gradient-to-br from-orange-500/10 to-pink-500/10 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-orange-500/20">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-r from-orange-500 to-pink-500 flex items-center justify-center mb-4 md:mb-6">
+              <Briefcase className="w-6 h-6 md:w-7 md:h-7 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Tedarikçiler İçin</h3>
-            <p className="text-white/70 mb-6">
-              DJ, ses sistemi, catering, mekan, konaklama, ulaşım... Hizmetiniz ne olursa olsun, binlerce potansiyel müşteriye ulaşın ve işinizi büyütün.
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">Tedarikçiler İçin</h3>
+            <p className="text-white/70 mb-4 md:mb-6 text-sm md:text-base">
+              DJ, ses sistemi, catering, mekan, konaklama, ulaşım... Hizmetiniz ne olursa olsun, binlerce potansiyel müşteriye ulaşın.
             </p>
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
               {[
                 'Ücretsiz profil oluşturma',
                 'Hedefli müşteri erişimi',
                 'Anlık teklif talepleri',
-                'Profesyonel portföy sayfası',
-                'Değerlendirme ve itibar sistemi',
                 'Güvenli ve hızlı ödeme'
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-white/80">
-                  <Check className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                <li key={i} className="flex items-center gap-2 md:gap-3 text-white/80 text-sm md:text-base">
+                  <Check className="w-4 h-4 md:w-5 md:h-5 text-orange-400 flex-shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
             <button
               onClick={onHemenBasla}
-              className="px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-pink-600 transition-all"
+              className="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-pink-600 transition-all active:scale-[0.98]"
             >
               Tedarikçi Olarak Başla
             </button>
@@ -1724,66 +1759,80 @@ function ForUsersSection({ onHemenBasla }) {
 // ============================================
 function DownloadSection({ onEarlyAccess }) {
   return (
-    <section className="py-24 bg-gradient-to-b from-[#0f0318] to-[#1a0a2e]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="bg-gradient-to-r from-purple-900/50 to-blue-900/50 rounded-3xl p-8 md:p-12 border border-purple-500/20 relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-[#0f0318] to-[#1a0a2e]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="bg-gradient-to-r from-purple-900/50 to-blue-900/50 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 border border-purple-500/20 relative overflow-hidden">
           {/* Background glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-purple-500/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 md:w-96 h-64 md:h-96 bg-blue-500/20 rounded-full blur-3xl" />
 
-          <div className="relative grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+          <div className="relative grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 border border-white/20 mb-4 md:mb-6">
                 <Smartphone className="w-4 h-4 text-white" />
-                <span className="text-white text-sm font-medium">Mobil Uygulama</span>
+                <span className="text-white text-xs md:text-sm font-medium">Mobil Uygulama</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
                 Turing'i İndirin,<br />Etkinliklerinizi Yönetin
               </h2>
-              <p className="text-white/70 mb-8 text-lg">
+              <p className="text-white/70 mb-6 md:mb-8 text-sm md:text-lg">
                 iOS ve Android için Turing uygulamasını indirin. Her yerden etkinliklerinizi takip edin, teklifler alın ve tedarikçilerle iletişimde kalın.
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-8">
+              {/* Mobile Phone Mockup - visible only on mobile */}
+              <div className="flex lg:hidden justify-center mb-6">
+                <div className="relative">
+                  <div className="w-[180px] h-[360px] rounded-[2rem] bg-gradient-to-b from-gray-700 to-gray-900 p-1.5 shadow-2xl">
+                    <div className="w-full h-full rounded-[1.75rem] overflow-hidden bg-black relative">
+                      <Image src="/screen-provider-dashboard.png" alt="Turing App" fill className="object-cover object-top" />
+                    </div>
+                  </div>
+                  <div className="absolute -top-2 -right-2 px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-white text-xs font-semibold shadow-lg">
+                    Yakında!
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8">
                 <button
                   onClick={onEarlyAccess}
-                  className="flex items-center gap-3 px-6 py-4 bg-black rounded-xl border border-white/20 hover:bg-white/5 transition-colors"
+                  className="flex items-center justify-center sm:justify-start gap-3 px-5 py-3 md:px-6 md:py-4 bg-black rounded-xl border border-white/20 hover:bg-white/5 transition-colors"
                 >
-                  <Apple className="w-8 h-8 text-white" />
+                  <Apple className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   <div className="text-left">
-                    <div className="text-white/60 text-xs">Çok Yakında</div>
-                    <div className="text-white font-semibold">App Store</div>
+                    <div className="text-white/60 text-[10px] md:text-xs">Çok Yakında</div>
+                    <div className="text-white font-semibold text-sm md:text-base">App Store</div>
                   </div>
                 </button>
                 <button
                   onClick={onEarlyAccess}
-                  className="flex items-center gap-3 px-6 py-4 bg-black rounded-xl border border-white/20 hover:bg-white/5 transition-colors"
+                  className="flex items-center justify-center sm:justify-start gap-3 px-5 py-3 md:px-6 md:py-4 bg-black rounded-xl border border-white/20 hover:bg-white/5 transition-colors"
                 >
-                  <Play className="w-8 h-8 text-white" />
+                  <Play className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   <div className="text-left">
-                    <div className="text-white/60 text-xs">Çok Yakında</div>
-                    <div className="text-white font-semibold">Google Play</div>
+                    <div className="text-white/60 text-[10px] md:text-xs">Çok Yakında</div>
+                    <div className="text-white font-semibold text-sm md:text-base">Google Play</div>
                   </div>
                 </button>
               </div>
 
-              <div className="flex items-center gap-6 text-white/60 text-sm">
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-400" />
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 md:gap-6 text-white/60 text-xs md:text-sm">
+                <div className="flex items-center gap-1.5 md:gap-2">
+                  <Check className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-400" />
                   Ücretsiz indirme
                 </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-400" />
+                <div className="flex items-center gap-1.5 md:gap-2">
+                  <Check className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-400" />
                   Kolay kullanım
                 </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-400" />
+                <div className="flex items-center gap-1.5 md:gap-2">
+                  <Check className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-400" />
                   7/24 destek
                 </div>
               </div>
             </div>
 
-            {/* Phone mockups */}
+            {/* Phone mockups - desktop only */}
             <div className="hidden lg:flex justify-center items-center relative">
               <div className="relative">
                 <div className="w-[260px] h-[520px] rounded-[3rem] bg-gradient-to-b from-gray-700 to-gray-900 p-2 shadow-2xl">
@@ -1842,45 +1891,45 @@ function TestimonialsSection() {
   }, [])
 
   return (
-    <section id="musteriler" className="py-24 bg-[#121212]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+    <section id="musteriler" className="py-16 md:py-24 bg-[#121212]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
             Müşterilerimiz Ne Diyor?
           </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+          <p className="text-sm md:text-lg text-white/60 max-w-2xl mx-auto px-2">
             Türkiye'nin önde gelen etkinlik profesyonelleri Turing'i tercih ediyor.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="relative bg-white/5 rounded-3xl p-8 md:p-12 border border-white/10">
-            <Quote className="absolute top-8 left-8 w-12 h-12 text-blue-500/30" />
+          <div className="relative bg-white/5 rounded-2xl md:rounded-3xl p-5 md:p-8 lg:p-12 border border-white/10">
+            <Quote className="absolute top-4 left-4 md:top-8 md:left-8 w-8 h-8 md:w-12 md:h-12 text-blue-500/30" />
 
             <div className="relative">
-              <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 pl-8">
+              <p className="text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-5 md:mb-8 pl-4 md:pl-8 pr-2">
                 "{testimonials[activeIndex].quote}"
               </p>
 
-              <div className="flex items-center gap-4 pl-8">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg">
+              <div className="flex items-center gap-3 md:gap-4 pl-4 md:pl-8">
+                <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm md:text-lg flex-shrink-0">
                   {testimonials[activeIndex].author.charAt(0)}
                 </div>
                 <div>
-                  <div className="font-semibold text-white">{testimonials[activeIndex].author}</div>
-                  <div className="text-white/60 text-sm">{testimonials[activeIndex].title}, {testimonials[activeIndex].company}</div>
+                  <div className="font-semibold text-white text-sm md:text-base">{testimonials[activeIndex].author}</div>
+                  <div className="text-white/60 text-xs md:text-sm">{testimonials[activeIndex].title}, {testimonials[activeIndex].company}</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Dots */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-6 md:mt-8">
             {testimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActiveIndex(i)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${i === activeIndex ? 'w-8 bg-blue-500' : 'bg-white/30 hover:bg-white/50'}`}
+                className={`h-2 md:h-2.5 rounded-full transition-all ${i === activeIndex ? 'w-6 md:w-8 bg-blue-500' : 'w-2 md:w-2.5 bg-white/30 hover:bg-white/50'}`}
               />
             ))}
           </div>
@@ -1920,18 +1969,18 @@ function FAQSection() {
   ]
 
   return (
-    <section id="sss" className="py-24 bg-gray-50">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section id="sss" className="py-16 md:py-24 bg-gray-50">
+      <div className="max-w-3xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
             Sıkça Sorulan Sorular
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-sm md:text-lg text-gray-600">
             Merak ettiklerinize hızlı yanıtlar
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2 md:space-y-3">
           {faqs.map((faq, i) => (
             <div
               key={i}
@@ -1939,21 +1988,21 @@ function FAQSection() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                className="w-full flex items-center justify-between p-5 text-left"
+                className="w-full flex items-center justify-between p-4 md:p-5 text-left gap-3"
               >
-                <span className="font-semibold text-gray-900 pr-4">{faq.question}</span>
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === i ? 'bg-blue-600' : 'bg-gray-100'}`}>
+                <span className="font-semibold text-gray-900 text-sm md:text-base">{faq.question}</span>
+                <div className={`flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === i ? 'bg-blue-600' : 'bg-gray-100'}`}>
                   {openIndex === i ? (
-                    <Minus className="w-4 h-4 text-white" />
+                    <Minus className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
                   ) : (
-                    <Plus className="w-4 h-4 text-gray-600" />
+                    <Plus className="w-3.5 h-3.5 md:w-4 md:h-4 text-gray-600" />
                   )}
                 </div>
               </button>
 
               {openIndex === i && (
-                <div className="px-5 pb-5">
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                <div className="px-4 pb-4 md:px-5 md:pb-5">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">{faq.answer}</p>
                 </div>
               )}
             </div>
@@ -1969,20 +2018,20 @@ function FAQSection() {
 // ============================================
 function CTASection({ onHemenBasla }) {
   return (
-    <section className="py-24 bg-gradient-to-r from-blue-600 to-purple-600">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+    <section className="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-purple-600">
+      <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6">
           Etkinlik yönetiminizi bir üst seviyeye taşıyın
         </h2>
-        <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
+        <p className="text-sm md:text-lg text-white/80 mb-6 md:mb-10 max-w-2xl mx-auto px-2">
           Eski yöntemleri geride bırakın. Turing ile etkinliklerinizi daha verimli, daha profesyonel yönetin.
         </p>
         <button
           onClick={onHemenBasla}
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-blue-600 bg-white hover:bg-gray-100 transition-colors shadow-lg"
+          className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-blue-600 bg-white hover:bg-gray-100 transition-colors shadow-lg text-sm md:text-base active:scale-[0.98]"
         >
           Hemen Başlayın
-          <ArrowRight className="w-5 h-5" />
+          <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
         </button>
       </div>
     </section>
@@ -2041,19 +2090,19 @@ function Footer({ onNasilCalisir }) {
   ]
 
   return (
-    <footer id="iletisim" className="bg-[#121212] pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 pb-12 border-b border-white/10">
+    <footer id="iletisim" className="bg-[#121212] pt-12 md:pt-16 pb-6 md:pb-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 pb-8 md:pb-12 border-b border-white/10">
           {/* Brand */}
           <div className="col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <Image src="/turing-icon.png" alt="Turing" width={32} height={32} />
-              <span className="font-bold text-xl text-white">turing</span>
+            <a href="#" className="flex items-center gap-2 mb-3 md:mb-4">
+              <Image src="/turing-icon.png" alt="Turing" width={28} height={28} className="md:w-8 md:h-8" />
+              <span className="font-bold text-lg md:text-xl text-white">turing</span>
             </a>
-            <p className="text-white/50 text-sm mb-6 max-w-xs leading-relaxed">
+            <p className="text-white/50 text-xs md:text-sm mb-4 md:mb-6 max-w-xs leading-relaxed">
               Etkinlik dünyasının dijital buluşma noktası. Organizatörler ve hizmet sağlayıcılar için tek platform.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2 md:gap-3">
               {socialLinks.map((social, i) => (
                 <a
                   key={i}
@@ -2061,9 +2110,9 @@ function Footer({ onNasilCalisir }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-all"
+                  className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-all"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-4 h-4 md:w-5 md:h-5" />
                 </a>
               ))}
             </div>
@@ -2072,22 +2121,22 @@ function Footer({ onNasilCalisir }) {
           {/* Links */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h4 className="font-semibold text-white mb-4">{section.title}</h4>
-              <ul className="space-y-2.5">
+              <h4 className="font-semibold text-white text-sm md:text-base mb-3 md:mb-4">{section.title}</h4>
+              <ul className="space-y-2 md:space-y-2.5">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     {link.onClick ? (
-                      <button onClick={link.onClick} className="text-white/50 hover:text-white text-sm transition-colors">
+                      <button onClick={link.onClick} className="text-white/50 hover:text-white text-xs md:text-sm transition-colors">
                         {link.name}
                       </button>
                     ) : (
                       <a
                         href={link.href}
-                        className={`text-sm transition-colors ${link.comingSoon ? 'text-white/30 cursor-not-allowed' : 'text-white/50 hover:text-white'}`}
+                        className={`text-xs md:text-sm transition-colors ${link.comingSoon ? 'text-white/30 cursor-not-allowed' : 'text-white/50 hover:text-white'}`}
                         onClick={link.comingSoon ? (e) => e.preventDefault() : undefined}
                       >
                         {link.name}
-                        {link.comingSoon && <span className="ml-1 text-xs text-blue-400/60">(Yakında)</span>}
+                        {link.comingSoon && <span className="ml-1 text-[10px] md:text-xs text-blue-400/60">(Yakında)</span>}
                       </a>
                     )}
                   </li>
@@ -2098,18 +2147,18 @@ function Footer({ onNasilCalisir }) {
         </div>
 
         {/* Bottom */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm">
-            <a href="mailto:info@turingtr.com" className="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
-              <Mail className="w-4 h-4" />
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 pt-6 md:pt-8">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 md:gap-4 text-xs md:text-sm">
+            <a href="mailto:info@turingtr.com" className="flex items-center gap-1.5 md:gap-2 text-white/50 hover:text-white transition-colors">
+              <Mail className="w-3.5 h-3.5 md:w-4 md:h-4" />
               info@turingtr.com
             </a>
-            <a href="tel:+908501234567" className="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
-              <Phone className="w-4 h-4" />
+            <a href="tel:+908501234567" className="flex items-center gap-1.5 md:gap-2 text-white/50 hover:text-white transition-colors">
+              <Phone className="w-3.5 h-3.5 md:w-4 md:h-4" />
               0850 123 45 67
             </a>
           </div>
-          <div className="text-white/40 text-sm">
+          <div className="text-white/40 text-xs md:text-sm">
             © 2026 Turing. Tüm hakları saklıdır.
           </div>
         </div>
