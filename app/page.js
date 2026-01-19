@@ -859,6 +859,7 @@ function AppShowcaseSection({ onEarlyAccess }) {
 function SolutionsSection() {
   const solutions = [
     {
+      id: 'booking',
       title: 'Booking & Sanatçı',
       desc: 'DJ\'ler, müzisyenler, performans sanatçıları ve daha fazlası. İhtiyacınıza uygun yetenekleri kolayca bulun.',
       icon: Music,
@@ -866,6 +867,7 @@ function SolutionsSection() {
       stats: '200+ Sanatçı'
     },
     {
+      id: 'teknik',
       title: 'Teknik Ekipman',
       desc: 'Profesyonel ses sistemleri, ışık düzenleri ve sahne ekipmanları. Etkinliğiniz için en iyi teknolojiyi kiralayın.',
       icon: Wrench,
@@ -873,6 +875,7 @@ function SolutionsSection() {
       stats: '150+ Tedarikçi'
     },
     {
+      id: 'mekan',
       title: 'Mekan',
       desc: 'Konser alanlarından butik mekanlara, her türlü etkinlik için ideal lokasyonlar.',
       icon: Building2,
@@ -880,6 +883,7 @@ function SolutionsSection() {
       stats: '300+ Mekan'
     },
     {
+      id: 'konaklama',
       title: 'Konaklama',
       desc: 'VIP misafirleriniz ve ekibiniz için özel konaklama paketleri ve anlaşmalı oteller.',
       icon: MapPin,
@@ -887,6 +891,7 @@ function SolutionsSection() {
       stats: '100+ Otel'
     },
     {
+      id: 'ulasim',
       title: 'Ulaşım',
       desc: 'Transfer hizmetleri, araç kiralama ve lojistik çözümler. Ekibinizi ve ekipmanlarınızı güvenle taşıyın.',
       icon: Truck,
@@ -894,6 +899,7 @@ function SolutionsSection() {
       stats: '80+ Partner'
     },
     {
+      id: 'operasyon',
       title: 'Operasyon',
       desc: 'Güvenlik, personel yönetimi ve etkinlik operasyonları için profesyonel destek.',
       icon: Users,
@@ -918,7 +924,7 @@ function SolutionsSection() {
           {solutions.map((solution, i) => (
             <a
               key={i}
-              href="#"
+              href={`#${solution.id}`}
               className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden"
             >
               {/* Color accent */}
@@ -946,6 +952,223 @@ function SolutionsSection() {
           ))}
         </div>
       </div>
+    </section>
+  )
+}
+
+// ============================================
+// SOLUTION DETAILS SECTION
+// ============================================
+function SolutionDetailsSection() {
+  const solutionDetails = [
+    {
+      id: 'booking',
+      title: 'Booking & Sanatçı',
+      subtitle: 'Etkinliğinize Hayat Verin',
+      desc: 'Türkiye\'nin en geniş sanatçı ve performans ağına erişin. DJ\'lerden canlı müzik gruplarına, stand-up komedyenlerinden dans gruplarına kadar her türlü performans için doğru yetenekleri bulun.',
+      icon: Music,
+      color: '#3B82F6',
+      bgColor: 'from-blue-600 to-indigo-700',
+      features: [
+        { title: 'Geniş Yetenek Havuzu', desc: '200+ profesyonel sanatçı ve performansçı' },
+        { title: 'Doğrulanmış Profiller', desc: 'Referansları ve geçmiş performansları inceleyin' },
+        { title: 'Esnek Bütçe', desc: 'Her bütçeye uygun seçenekler' },
+        { title: 'Kolay İletişim', desc: 'Doğrudan menajerlerle görüşün' },
+      ],
+      stats: [
+        { value: '200+', label: 'Sanatçı' },
+        { value: '500+', label: 'Performans' },
+        { value: '4.9', label: 'Puan' },
+      ]
+    },
+    {
+      id: 'teknik',
+      title: 'Teknik Ekipman',
+      subtitle: 'Profesyonel Ses & Işık',
+      desc: 'En son teknoloji ses sistemleri, etkileyici ışık düzenleri ve profesyonel sahne ekipmanları. Küçük etkinliklerden büyük festivallere kadar her ölçekte teknik altyapı desteği.',
+      icon: Wrench,
+      color: '#10B981',
+      bgColor: 'from-emerald-600 to-teal-700',
+      features: [
+        { title: 'Son Teknoloji', desc: 'En güncel ses ve ışık sistemleri' },
+        { title: 'Teknik Ekip', desc: 'Deneyimli teknik personel desteği' },
+        { title: 'Kurulum Dahil', desc: 'Montaj ve demontaj hizmeti' },
+        { title: 'Test & Deneme', desc: 'Etkinlik öncesi ses kontrolü' },
+      ],
+      stats: [
+        { value: '150+', label: 'Tedarikçi' },
+        { value: '1000+', label: 'Ekipman' },
+        { value: '24/7', label: 'Destek' },
+      ]
+    },
+    {
+      id: 'mekan',
+      title: 'Mekan',
+      subtitle: 'Hayalinizdeki Lokasyon',
+      desc: 'Konser alanlarından butik mekanlara, açık hava etkinlik alanlarından tarihi yapılara kadar her türlü etkinlik için mükemmel lokasyonu bulun.',
+      icon: Building2,
+      color: '#8B5CF6',
+      bgColor: 'from-violet-600 to-purple-700',
+      features: [
+        { title: 'Çeşitli Seçenekler', desc: 'Her tür ve kapasitede mekan' },
+        { title: 'Sanal Tur', desc: 'Online mekan gezisi imkanı' },
+        { title: 'Paket Fiyatlar', desc: 'Catering dahil paketler' },
+        { title: 'Konum Avantajı', desc: '81 ilde mekan seçenekleri' },
+      ],
+      stats: [
+        { value: '300+', label: 'Mekan' },
+        { value: '81', label: 'İl' },
+        { value: '50K+', label: 'Kapasite' },
+      ]
+    },
+    {
+      id: 'konaklama',
+      title: 'Konaklama',
+      subtitle: 'Konfor & Kolaylık',
+      desc: 'VIP misafirleriniz, sanatçılarınız ve ekibiniz için özel konaklama çözümleri. Anlaşmalı otellerle uygun fiyatlar ve özel ayrıcalıklar.',
+      icon: MapPin,
+      color: '#EC4899',
+      bgColor: 'from-pink-600 to-rose-700',
+      features: [
+        { title: 'VIP Paketler', desc: 'Sanatçılar için özel odalar' },
+        { title: 'Grup İndirimi', desc: 'Toplu rezervasyonda avantaj' },
+        { title: 'Merkezi Konum', desc: 'Etkinlik alanına yakın oteller' },
+        { title: 'Ekstra Hizmetler', desc: 'Transfer ve yemek dahil seçenekler' },
+      ],
+      stats: [
+        { value: '100+', label: 'Otel' },
+        { value: '%30', label: 'İndirim' },
+        { value: '5★', label: 'Seçenekler' },
+      ]
+    },
+    {
+      id: 'ulasim',
+      title: 'Ulaşım',
+      subtitle: 'Güvenli & Zamanında',
+      desc: 'Ekibinizi, ekipmanlarınızı ve misafirlerinizi güvenle taşıyın. VIP transfer, grup taşımacılığı ve lojistik çözümler tek platformda.',
+      icon: Truck,
+      color: '#F59E0B',
+      bgColor: 'from-amber-500 to-orange-600',
+      features: [
+        { title: 'VIP Transfer', desc: 'Lüks araçlarla havalimanı transferi' },
+        { title: 'Grup Taşıma', desc: 'Otobüs ve minibüs kiralama' },
+        { title: 'Ekipman Lojistiği', desc: 'Güvenli ekipman taşımacılığı' },
+        { title: 'Şehirlerarası', desc: 'Türkiye genelinde hizmet' },
+      ],
+      stats: [
+        { value: '80+', label: 'Partner' },
+        { value: '500+', label: 'Araç' },
+        { value: '81', label: 'İl' },
+      ]
+    },
+    {
+      id: 'operasyon',
+      title: 'Operasyon',
+      subtitle: 'Sorunsuz Etkinlik',
+      desc: 'Etkinliğinizin kusursuz geçmesi için profesyonel operasyon desteği. Güvenlik, personel yönetimi ve sahne arkası koordinasyonu.',
+      icon: Users,
+      color: '#EF4444',
+      bgColor: 'from-red-600 to-rose-700',
+      features: [
+        { title: 'Güvenlik', desc: 'Lisanslı güvenlik personeli' },
+        { title: 'Hostes & Host', desc: 'Eğitimli karşılama ekibi' },
+        { title: 'Sahne Arkası', desc: 'Backstage koordinasyonu' },
+        { title: 'Acil Durum', desc: 'Sağlık ve güvenlik planı' },
+      ],
+      stats: [
+        { value: '50+', label: 'Ajans' },
+        { value: '2000+', label: 'Personel' },
+        { value: '100+', label: 'Etkinlik' },
+      ]
+    },
+  ]
+
+  return (
+    <section className="bg-[#121212]">
+      {solutionDetails.map((solution, index) => (
+        <div
+          key={solution.id}
+          id={solution.id}
+          className={`py-24 scroll-mt-16 ${index % 2 === 0 ? 'bg-[#121212]' : 'bg-[#1a1a2e]'}`}
+        >
+          <div className="max-w-7xl mx-auto px-6">
+            <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+              {/* Content */}
+              <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ backgroundColor: `${solution.color}20`, border: `1px solid ${solution.color}40` }}>
+                  <solution.icon className="w-4 h-4" style={{ color: solution.color }} />
+                  <span className="text-sm font-medium" style={{ color: solution.color }}>{solution.title}</span>
+                </div>
+
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                  {solution.subtitle}
+                </h2>
+                <p className="text-lg text-white/60 mb-8 leading-relaxed">
+                  {solution.desc}
+                </p>
+
+                {/* Features */}
+                <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                  {solution.features.map((feature, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-white/5 border border-white/10">
+                      <div className="font-semibold text-white mb-1">{feature.title}</div>
+                      <div className="text-sm text-white/50">{feature.desc}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Stats */}
+                <div className="flex gap-8">
+                  {solution.stats.map((stat, i) => (
+                    <div key={i}>
+                      <div className="text-3xl font-bold" style={{ color: solution.color }}>{stat.value}</div>
+                      <div className="text-white/50 text-sm">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Visual */}
+              <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
+                <div className={`relative rounded-3xl p-8 lg:p-12 bg-gradient-to-br ${solution.bgColor} overflow-hidden`}>
+                  {/* Background pattern */}
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl" />
+                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full blur-3xl" />
+                  </div>
+
+                  {/* Icon display */}
+                  <div className="relative">
+                    <div className="w-24 h-24 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center mb-6">
+                      <solution.icon className="w-12 h-12 text-white" />
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-white mb-2">{solution.title}</h3>
+                    <p className="text-white/80 mb-6">{solution.stats[0].value} {solution.stats[0].label}</p>
+
+                    {/* Sample cards */}
+                    <div className="space-y-3">
+                      {[1, 2, 3].map((item) => (
+                        <div key={item} className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur">
+                          <div className="w-10 h-10 rounded-lg bg-white/20" />
+                          <div className="flex-1">
+                            <div className="h-3 w-24 bg-white/30 rounded" />
+                            <div className="h-2 w-16 bg-white/20 rounded mt-2" />
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                            <span className="text-white/80 text-sm">4.{8 + item}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </section>
   )
 }
@@ -1284,6 +1507,7 @@ export default function Home() {
         onNasilCalisir={() => setIsNasilCalisirOpen(true)}
       />
       <SolutionsSection />
+      <SolutionDetailsSection />
       <AppShowcaseSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
       <TestimonialsSection />
       <FAQSection />
