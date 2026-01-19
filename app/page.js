@@ -368,9 +368,164 @@ function NasilCalisirModal({ isOpen, onClose }) {
 }
 
 // ============================================
+// ERKEN ERİŞİM MODAL
+// ============================================
+function EarlyAccessModal({ isOpen, onClose }) {
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [platform, setPlatform] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (!email || !name || !platform) return
+
+    setIsSubmitting(true)
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setIsSuccess(true)
+    }, 1500)
+  }
+
+  const resetModal = () => {
+    setEmail('')
+    setName('')
+    setPlatform('')
+    setIsSuccess(false)
+    onClose()
+  }
+
+  if (!isOpen) return null
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={resetModal} />
+
+      <div
+        className="relative w-full max-w-md rounded-3xl border border-white/10 overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #1a0533 0%, #2d1b4e 100%)', boxShadow: '0 25px 80px rgba(139,92,246,0.3)' }}
+      >
+        <button onClick={resetModal} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/20 transition-all z-10">
+          <X className="w-5 h-5" />
+        </button>
+
+        {isSuccess ? (
+          <div className="p-10 text-center">
+            <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 8px 40px rgba(16,185,129,0.4)' }}>
+              <Check className="w-10 h-10 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3 font-outfit">Kayıt Başarılı!</h3>
+            <p className="text-white/60 mb-6 font-inter">Uygulama yayınlandığında sizi bilgilendireceğiz. Erken erişim listesine eklendiniz!</p>
+            <button onClick={resetModal} className="px-8 py-3 rounded-2xl font-semibold text-white font-outfit transition-all hover:scale-105" style={{ background: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)' }}>
+              Tamam
+            </button>
+          </div>
+        ) : (
+          <div className="p-8">
+            <div className="text-center mb-8">
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)', boxShadow: '0 8px 32px rgba(139,92,246,0.4)' }}>
+                <Rocket className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2 font-outfit">Erken Erişim</h3>
+              <p className="text-white/60 font-inter text-sm">Turing uygulamasına ilk erişenlerden olun!</p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-white/70 text-sm mb-2 font-inter">Adınız</label>
+                <div className="relative">
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Adınızı girin"
+                    className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-violet-500/50 transition-colors font-inter"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-white/70 text-sm mb-2 font-inter">E-posta</label>
+                <div className="relative">
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="ornek@email.com"
+                    className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-violet-500/50 transition-colors font-inter"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-white/70 text-sm mb-2 font-inter">Platform Tercihiniz</label>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setPlatform('ios')}
+                    className={`flex items-center justify-center gap-2 py-3.5 rounded-xl border transition-all ${
+                      platform === 'ios'
+                        ? 'bg-white/10 border-violet-500/50 text-white'
+                        : 'bg-white/5 border-white/10 text-white/60 hover:border-white/20'
+                    }`}
+                  >
+                    <Apple className="w-5 h-5" />
+                    <span className="font-inter text-sm">iOS</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setPlatform('android')}
+                    className={`flex items-center justify-center gap-2 py-3.5 rounded-xl border transition-all ${
+                      platform === 'android'
+                        ? 'bg-white/10 border-violet-500/50 text-white'
+                        : 'bg-white/5 border-white/10 text-white/60 hover:border-white/20'
+                    }`}
+                  >
+                    <Play className="w-5 h-5" />
+                    <span className="font-inter text-sm">Android</span>
+                  </button>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting || !email || !name || !platform}
+                className="w-full py-4 rounded-xl font-semibold text-white font-outfit transition-all hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100 flex items-center justify-center gap-2"
+                style={{ background: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)', boxShadow: '0 8px 32px rgba(139,92,246,0.3)' }}
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Kaydediliyor...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Erken Erişim İste
+                  </>
+                )}
+              </button>
+            </form>
+
+            <p className="text-white/40 text-xs text-center mt-4 font-inter">
+              Bilgileriniz gizli tutulacak ve sadece uygulama bildirimleri için kullanılacaktır.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+// ============================================
 // TOP BANNER
 // ============================================
-function TopBanner({ onClose }) {
+function TopBanner({ onClose, onEarlyAccess }) {
   return (
     <div className="bg-white text-gray-900 py-2.5 px-4 relative z-[60]">
       <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-sm">
@@ -378,9 +533,9 @@ function TopBanner({ onClose }) {
         <span className="font-medium font-inter">
           <span className="hidden sm:inline">Turing uygulaması yakında iOS ve Android'de! </span>
           <span className="sm:hidden">Uygulama yakında! </span>
-          <a href="#" className="text-violet-600 hover:text-violet-700 underline underline-offset-2 font-semibold">
+          <button onClick={onEarlyAccess} className="text-violet-600 hover:text-violet-700 underline underline-offset-2 font-semibold">
             Erken erişim için kayıt ol
-          </a>
+          </button>
         </span>
         <button onClick={onClose} className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded-full transition-colors">
           <X className="w-4 h-4 text-gray-500" />
@@ -1055,11 +1210,12 @@ function Footer({ onNasilCalisir }) {
 export default function Home() {
   const [isHemenBaslaOpen, setIsHemenBaslaOpen] = useState(false)
   const [isNasilCalisirOpen, setIsNasilCalisirOpen] = useState(false)
+  const [isEarlyAccessOpen, setIsEarlyAccessOpen] = useState(false)
   const [showBanner, setShowBanner] = useState(true)
 
   return (
     <main>
-      {showBanner && <TopBanner onClose={() => setShowBanner(false)} />}
+      {showBanner && <TopBanner onClose={() => setShowBanner(false)} onEarlyAccess={() => setIsEarlyAccessOpen(true)} />}
       <Navbar onHemenBasla={() => setIsHemenBaslaOpen(true)} onNasilCalisir={() => setIsNasilCalisirOpen(true)} hasBanner={showBanner} />
       <HeroSection onHemenBasla={() => setIsHemenBaslaOpen(true)} onNasilCalisir={() => setIsNasilCalisirOpen(true)} />
       <ServicesSection />
@@ -1070,6 +1226,7 @@ export default function Home() {
       <Footer onNasilCalisir={() => setIsNasilCalisirOpen(true)} />
       <HemenBaslaModal isOpen={isHemenBaslaOpen} onClose={() => setIsHemenBaslaOpen(false)} />
       <NasilCalisirModal isOpen={isNasilCalisirOpen} onClose={() => setIsNasilCalisirOpen(false)} />
+      <EarlyAccessModal isOpen={isEarlyAccessOpen} onClose={() => setIsEarlyAccessOpen(false)} />
     </main>
   )
 }
