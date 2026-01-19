@@ -1351,6 +1351,460 @@ function SolutionDetailsSection({ onHemenBasla }) {
 }
 
 // ============================================
+// HOW IT WORKS SECTION - Detailed
+// ============================================
+function HowItWorksSection() {
+  const organizerSteps = [
+    {
+      step: 1,
+      title: 'Etkinliğinizi Oluşturun',
+      desc: 'Etkinlik detaylarını, tarih, konum ve bütçe bilgilerini girin. Hangi hizmetlere ihtiyacınız olduğunu belirleyin.',
+      icon: Calendar,
+      color: 'blue'
+    },
+    {
+      step: 2,
+      title: 'Tedarikçileri Keşfedin',
+      desc: 'Yüzlerce doğrulanmış tedarikçi arasından filtreleme yapın. Puanları, yorumları ve portföyleri inceleyin.',
+      icon: Search,
+      color: 'purple'
+    },
+    {
+      step: 3,
+      title: 'Teklif Alın',
+      desc: 'Seçtiğiniz tedarikçilerden teklif isteyin. Fiyatları ve koşulları yan yana karşılaştırın.',
+      icon: FileCheck,
+      color: 'pink'
+    },
+    {
+      step: 4,
+      title: 'Anlaşın & Yönetin',
+      desc: 'Dijital sözleşme imzalayın, güvenli ödeme yapın. Tüm süreci tek panelden takip edin.',
+      icon: Check,
+      color: 'green'
+    }
+  ]
+
+  const supplierSteps = [
+    {
+      step: 1,
+      title: 'Profilinizi Oluşturun',
+      desc: 'Hizmetlerinizi, fiyat aralığınızı ve portföyünüzü ekleyin. Referanslarınızı paylaşın.',
+      icon: User,
+      color: 'orange'
+    },
+    {
+      step: 2,
+      title: 'Talepleri Görün',
+      desc: 'Size uygun etkinlik taleplerini anlık bildirimlerle alın. Detayları inceleyin.',
+      icon: Bell,
+      color: 'cyan'
+    },
+    {
+      step: 3,
+      title: 'Teklif Gönderin',
+      desc: 'Rekabetçi teklifler hazırlayın. Organizatörlerle doğrudan iletişim kurun.',
+      icon: Send,
+      color: 'blue'
+    },
+    {
+      step: 4,
+      title: 'Kazanın & Büyüyün',
+      desc: 'İşi alın, hizmeti verin. Olumlu değerlendirmelerle itibarınızı artırın.',
+      icon: TrendingUp,
+      color: 'green'
+    }
+  ]
+
+  const colorClasses = {
+    blue: 'from-blue-500 to-blue-600',
+    purple: 'from-purple-500 to-purple-600',
+    pink: 'from-pink-500 to-pink-600',
+    green: 'from-green-500 to-emerald-600',
+    orange: 'from-orange-500 to-amber-600',
+    cyan: 'from-cyan-500 to-blue-600'
+  }
+
+  return (
+    <section className="py-24 bg-gradient-to-b from-[#1a0a2e] to-[#0f0318]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+            <Rocket className="w-4 h-4 text-blue-400" />
+            <span className="text-blue-400 text-sm font-medium">Nasıl Çalışır?</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            4 Adımda Etkinlik Yönetimi
+          </h2>
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            İster organizatör olun ister tedarikçi, Turing ile işinizi kolaylaştırın.
+          </p>
+        </div>
+
+        {/* For Organizers */}
+        <div className="mb-20">
+          <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+              <Building2 className="w-5 h-5 text-white" />
+            </div>
+            Organizatörler İçin
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {organizerSteps.map((item, i) => (
+              <div key={i} className="relative group">
+                {i < organizerSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-white/20 to-transparent z-0" />
+                )}
+                <div className="relative bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${colorClasses[item.color]} flex items-center justify-center mb-4`}>
+                    <item.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-white/40 text-sm mb-2">Adım {item.step}</div>
+                  <h4 className="text-white font-semibold text-lg mb-2">{item.title}</h4>
+                  <p className="text-white/60 text-sm">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* For Suppliers */}
+        <div>
+          <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 flex items-center justify-center">
+              <Briefcase className="w-5 h-5 text-white" />
+            </div>
+            Tedarikçiler İçin
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {supplierSteps.map((item, i) => (
+              <div key={i} className="relative group">
+                {i < supplierSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-white/20 to-transparent z-0" />
+                )}
+                <div className="relative bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${colorClasses[item.color]} flex items-center justify-center mb-4`}>
+                    <item.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-white/40 text-sm mb-2">Adım {item.step}</div>
+                  <h4 className="text-white font-semibold text-lg mb-2">{item.title}</h4>
+                  <p className="text-white/60 text-sm">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ============================================
+// FEATURES SECTION - Platform Features
+// ============================================
+function FeaturesSection() {
+  const features = [
+    {
+      icon: Search,
+      title: 'Akıllı Eşleştirme',
+      desc: 'Yapay zeka destekli algoritma ile ihtiyacınıza en uygun tedarikçileri saniyeler içinde bulun.',
+      highlight: 'AI Destekli'
+    },
+    {
+      icon: Shield,
+      title: 'Güvenli Ödeme',
+      desc: 'Emanet sistemi ile ödemeleriniz güvende. Hizmet tamamlanmadan ödeme tedarikçiye aktarılmaz.',
+      highlight: 'Emanet Sistemi'
+    },
+    {
+      icon: FileCheck,
+      title: 'Dijital Sözleşme',
+      desc: 'Yasal geçerliliği olan dijital sözleşmeler oluşturun. E-imza ile anında onaylayın.',
+      highlight: 'E-İmza'
+    },
+    {
+      icon: MessageCircle,
+      title: 'Anlık İletişim',
+      desc: 'Uygulama içi mesajlaşma, dosya paylaşımı ve bildirimlerle sürekli iletişimde kalın.',
+      highlight: 'Gerçek Zamanlı'
+    },
+    {
+      icon: BarChart3,
+      title: 'Detaylı Analitik',
+      desc: 'Bütçe takibi, harcama raporları ve performans metrikleri ile veriye dayalı kararlar alın.',
+      highlight: 'Dashboard'
+    },
+    {
+      icon: Users,
+      title: 'Ekip Yönetimi',
+      desc: 'Takım üyelerinizi davet edin, roller atayın. Birlikte daha verimli çalışın.',
+      highlight: 'Çoklu Kullanıcı'
+    },
+    {
+      icon: Star,
+      title: 'Değerlendirme Sistemi',
+      desc: 'Şeffaf puan ve yorum sistemi ile güvenilir tedarikçileri kolayca belirleyin.',
+      highlight: 'Şeffaf'
+    },
+    {
+      icon: Globe,
+      title: '81 İl Kapsama',
+      desc: 'Türkiye\'nin her yerinde hizmet. Yerel tedarikçilerden ulusal firmalara geniş seçenek.',
+      highlight: 'Türkiye Geneli'
+    },
+    {
+      icon: Clock,
+      title: '7/24 Destek',
+      desc: 'Etkinlik öncesi, sırası ve sonrası her an yanınızdayız. Canlı destek ve yardım merkezi.',
+      highlight: 'Kesintisiz'
+    }
+  ]
+
+  return (
+    <section className="py-24 bg-[#0f0318]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6">
+            <Sparkles className="w-4 h-4 text-purple-400" />
+            <span className="text-purple-400 text-sm font-medium">Platform Özellikleri</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Etkinlik Yönetiminin Geleceği
+          </h2>
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            Turing'in sunduğu güçlü özelliklerle etkinliklerinizi daha verimli yönetin.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, i) => (
+            <div key={i} className="group bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-purple-500/30 transition-all hover:-translate-y-1">
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-colors">
+                  <feature.icon className="w-6 h-6 text-purple-400" />
+                </div>
+                <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-medium">
+                  {feature.highlight}
+                </span>
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-2">{feature.title}</h3>
+              <p className="text-white/60 text-sm">{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ============================================
+// STATS SECTION - Numbers
+// ============================================
+function StatsSection() {
+  const stats = [
+    { value: '500+', label: 'Hizmet Sağlayıcı', desc: 'Doğrulanmış tedarikçi ağı' },
+    { value: '1,200+', label: 'Tamamlanan Etkinlik', desc: 'Başarıyla gerçekleştirilen projeler' },
+    { value: '81', label: 'İl Kapsamı', desc: 'Türkiye genelinde hizmet' },
+    { value: '₺50M+', label: 'İşlem Hacmi', desc: 'Platform üzerinden yapılan ödemeler' },
+    { value: '4.8', label: 'Ortalama Puan', desc: 'Müşteri memnuniyeti' },
+    { value: '%95', label: 'Başarı Oranı', desc: 'Zamanında tamamlanan işler' },
+  ]
+
+  return (
+    <section className="py-24 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Rakamlarla Turing
+          </h2>
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+            Türkiye'nin en hızlı büyüyen etkinlik yönetim platformu
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          {stats.map((stat, i) => (
+            <div key={i} className="text-center p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</div>
+              <div className="text-white font-medium text-sm mb-1">{stat.label}</div>
+              <div className="text-white/60 text-xs">{stat.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ============================================
+// FOR USERS SECTION - Organizers & Suppliers
+// ============================================
+function ForUsersSection({ onHemenBasla }) {
+  return (
+    <section className="py-24 bg-[#0f0318]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* For Organizers */}
+          <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl p-8 border border-blue-500/20">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mb-6">
+              <Building2 className="w-7 h-7 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-4">Organizatörler İçin</h3>
+            <p className="text-white/70 mb-6">
+              Konser, festival, kurumsal etkinlik, düğün veya özel parti... Her türlü etkinliğiniz için doğru tedarikçileri bulun, teklifler alın ve tüm süreci tek platformdan yönetin.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                'Yüzlerce doğrulanmış tedarikçiye erişim',
+                'Tek tıkla çoklu teklif talebi',
+                'Şeffaf fiyatlandırma ve karşılaştırma',
+                'Dijital sözleşme ve güvenli ödeme',
+                'Bütçe takibi ve raporlama',
+                'Ekip işbirliği araçları'
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3 text-white/80">
+                  <Check className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={onHemenBasla}
+              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all"
+            >
+              Organizatör Olarak Başla
+            </button>
+          </div>
+
+          {/* For Suppliers */}
+          <div className="bg-gradient-to-br from-orange-500/10 to-pink-500/10 rounded-3xl p-8 border border-orange-500/20">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-orange-500 to-pink-500 flex items-center justify-center mb-6">
+              <Briefcase className="w-7 h-7 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-4">Tedarikçiler İçin</h3>
+            <p className="text-white/70 mb-6">
+              DJ, ses sistemi, catering, mekan, konaklama, ulaşım... Hizmetiniz ne olursa olsun, binlerce potansiyel müşteriye ulaşın ve işinizi büyütün.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                'Ücretsiz profil oluşturma',
+                'Hedefli müşteri erişimi',
+                'Anlık teklif talepleri',
+                'Profesyonel portföy sayfası',
+                'Değerlendirme ve itibar sistemi',
+                'Güvenli ve hızlı ödeme'
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3 text-white/80">
+                  <Check className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={onHemenBasla}
+              className="px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-pink-600 transition-all"
+            >
+              Tedarikçi Olarak Başla
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ============================================
+// DOWNLOAD SECTION - App Download
+// ============================================
+function DownloadSection({ onEarlyAccess }) {
+  return (
+    <section className="py-24 bg-gradient-to-b from-[#0f0318] to-[#1a0a2e]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="bg-gradient-to-r from-purple-900/50 to-blue-900/50 rounded-3xl p-8 md:p-12 border border-purple-500/20 relative overflow-hidden">
+          {/* Background glow */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+
+          <div className="relative grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+                <Smartphone className="w-4 h-4 text-white" />
+                <span className="text-white text-sm font-medium">Mobil Uygulama</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Turing'i İndirin,<br />Etkinliklerinizi Yönetin
+              </h2>
+              <p className="text-white/70 mb-8 text-lg">
+                iOS ve Android için Turing uygulamasını indirin. Her yerden etkinliklerinizi takip edin, teklifler alın ve tedarikçilerle iletişimde kalın.
+              </p>
+
+              <div className="flex flex-wrap gap-4 mb-8">
+                <button
+                  onClick={onEarlyAccess}
+                  className="flex items-center gap-3 px-6 py-4 bg-black rounded-xl border border-white/20 hover:bg-white/5 transition-colors"
+                >
+                  <Apple className="w-8 h-8 text-white" />
+                  <div className="text-left">
+                    <div className="text-white/60 text-xs">Çok Yakında</div>
+                    <div className="text-white font-semibold">App Store</div>
+                  </div>
+                </button>
+                <button
+                  onClick={onEarlyAccess}
+                  className="flex items-center gap-3 px-6 py-4 bg-black rounded-xl border border-white/20 hover:bg-white/5 transition-colors"
+                >
+                  <Play className="w-8 h-8 text-white" />
+                  <div className="text-left">
+                    <div className="text-white/60 text-xs">Çok Yakında</div>
+                    <div className="text-white font-semibold">Google Play</div>
+                  </div>
+                </button>
+              </div>
+
+              <div className="flex items-center gap-6 text-white/60 text-sm">
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-400" />
+                  Ücretsiz indirme
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-400" />
+                  Kolay kullanım
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-400" />
+                  7/24 destek
+                </div>
+              </div>
+            </div>
+
+            {/* Phone mockups */}
+            <div className="hidden lg:flex justify-center items-center relative">
+              <div className="relative">
+                <div className="w-[260px] h-[520px] rounded-[3rem] bg-gradient-to-b from-gray-700 to-gray-900 p-2 shadow-2xl">
+                  <div className="w-full h-full rounded-[2.5rem] overflow-hidden bg-black relative">
+                    <Image src="/screen-provider-dashboard.png" alt="Turing App" fill className="object-cover object-top" />
+                  </div>
+                </div>
+                {/* Floating badge */}
+                <div className="absolute -top-4 -right-4 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-white text-sm font-semibold shadow-lg">
+                  Yakında!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ============================================
 // TESTIMONIALS SECTION
 // ============================================
 function TestimonialsSection() {
@@ -1685,9 +2139,14 @@ export default function Home() {
       />
       <SolutionsSection />
       <SolutionDetailsSection onHemenBasla={() => setIsHemenBaslaOpen(true)} />
+      <HowItWorksSection />
+      <FeaturesSection />
       <AppShowcaseSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
       <AppGallerySection />
+      <StatsSection />
+      <ForUsersSection onHemenBasla={() => setIsHemenBaslaOpen(true)} />
       <TestimonialsSection />
+      <DownloadSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
       <FAQSection />
       <CTASection onHemenBasla={() => setIsHemenBaslaOpen(true)} />
       <Footer onNasilCalisir={() => setIsNasilCalisirOpen(true)} />
