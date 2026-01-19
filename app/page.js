@@ -588,7 +588,7 @@ function HeroSection({ onHemenBasla, onNasilCalisir }) {
         </div>
 
         {/* Feature cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div id="ozellikler" className="grid md:grid-cols-3 gap-6 lg:gap-8 scroll-mt-24">
           {[
             { icon: Network, title: 'Geniş Hizmet Ağı', description: 'Booking, teknik ekipman, konaklama, mekan, ulaşım ve operasyon kategorilerinde 7/24 erişim', color: '#8b5cf6' },
             { icon: Zap, title: 'Anında Teklif Al', description: "81 ilde binlerce hizmet sağlayıcıdan dakikalar içinde rekabetçi teklifler alın", color: '#10b981' },
@@ -930,49 +930,116 @@ function AppCtaSection({ onHemenBasla }) {
 // ============================================
 // FOOTER
 // ============================================
-function Footer() {
+function Footer({ onNasilCalisir }) {
+  const footerLinks = [
+    {
+      title: 'Ürün',
+      links: [
+        { name: 'Özellikler', href: '#ozellikler' },
+        { name: 'Hizmetler', href: '#hizmetler' },
+        { name: 'Nasıl Çalışır', onClick: onNasilCalisir },
+        { name: 'Fiyatlandırma', href: '#', comingSoon: true }
+      ]
+    },
+    {
+      title: 'Şirket',
+      links: [
+        { name: 'Hakkımızda', href: '#', comingSoon: true },
+        { name: 'Blog', href: '#', comingSoon: true },
+        { name: 'Kariyer', href: '#', comingSoon: true },
+        { name: 'İletişim', href: '#iletisim' }
+      ]
+    },
+    {
+      title: 'Yasal',
+      links: [
+        { name: 'Gizlilik Politikası', href: '#', comingSoon: true },
+        { name: 'Kullanım Koşulları', href: '#', comingSoon: true },
+        { name: 'KVKK', href: '#', comingSoon: true }
+      ]
+    }
+  ]
+
+  const socialLinks = [
+    { icon: Instagram, href: 'https://instagram.com/turingtr', label: 'Instagram' },
+    { icon: Twitter, href: 'https://twitter.com/turingtr', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/turingtr', label: 'LinkedIn' }
+  ]
+
   return (
     <footer id="iletisim" className="py-16 border-t border-white/10" style={{ background: '#0f0318' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+          {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <Image src="/turing-icon.png" alt="Turing" width={40} height={40} />
-              <Image src="/turing-logo.png" alt="Turing" width={80} height={28} />
-            </div>
-            <p className="text-white/50 mb-6 max-w-sm font-inter">Etkinlik dünyasının dijital buluşma noktası. Hizmet sağlayıcılar ve organizatörler için tek platform.</p>
-            <div className="flex gap-4">
-              {[Instagram, Twitter, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300">
-                  <Icon className="w-5 h-5" />
+            <a href="#" className="flex items-center gap-3 mb-6 group">
+              <Image src="/turing-icon.png" alt="Turing" width={40} height={40} className="group-hover:scale-110 transition-transform" />
+              <span className="font-outfit font-bold text-xl text-white">turing</span>
+            </a>
+            <p className="text-white/50 mb-6 max-w-sm font-inter leading-relaxed">
+              Etkinlik dünyasının dijital buluşma noktası. Hizmet sağlayıcılar ve organizatörler için tek platform.
+            </p>
+            <div className="flex gap-3">
+              {socialLinks.map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-violet-500/20 hover:border-violet-500/30 transition-all duration-300"
+                >
+                  <social.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
           </div>
 
-          {[
-            { title: 'Ürün', links: ['Özellikler', 'Fiyatlandırma', 'Nasıl Çalışır', 'SSS'] },
-            { title: 'Şirket', links: ['Hakkımızda', 'Blog', 'Kariyer', 'İletişim'] },
-            { title: 'Yasal', links: ['Gizlilik Politikası', 'Kullanım Koşulları', 'KVKK'] }
-          ].map((section) => (
+          {/* Links */}
+          {footerLinks.map((section) => (
             <div key={section.title}>
               <h4 className="text-white font-semibold mb-4 font-outfit">{section.title}</h4>
               <ul className="space-y-3">
                 {section.links.map((link) => (
-                  <li key={link}><a href="#" className="text-white/50 hover:text-white transition-colors duration-300 font-inter">{link}</a></li>
+                  <li key={link.name}>
+                    {link.onClick ? (
+                      <button
+                        onClick={link.onClick}
+                        className="text-white/50 hover:text-white transition-colors duration-300 font-inter"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className={`font-inter transition-colors duration-300 ${
+                          link.comingSoon
+                            ? 'text-white/30 cursor-not-allowed'
+                            : 'text-white/50 hover:text-white'
+                        }`}
+                        onClick={link.comingSoon ? (e) => e.preventDefault() : undefined}
+                      >
+                        {link.name}
+                        {link.comingSoon && <span className="ml-2 text-xs text-violet-400/60">(Yakında)</span>}
+                      </a>
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
 
+        {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 py-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <a href="mailto:info@turingtr.com" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors">
-              <Mail className="w-5 h-5" /><span className="font-inter">info@turingtr.com</span>
+            <a href="mailto:info@turingtr.com" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors group">
+              <Mail className="w-5 h-5 group-hover:text-violet-400 transition-colors" />
+              <span className="font-inter">info@turingtr.com</span>
             </a>
-            <a href="tel:+908501234567" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors">
-              <Phone className="w-5 h-5" /><span className="font-inter">0850 123 45 67</span>
+            <a href="tel:+908501234567" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors group">
+              <Phone className="w-5 h-5 group-hover:text-violet-400 transition-colors" />
+              <span className="font-inter">0850 123 45 67</span>
             </a>
           </div>
           <div className="text-white/40 text-sm font-inter">© 2026 Turing. Tüm hakları saklıdır.</div>
@@ -1000,7 +1067,7 @@ export default function Home() {
       <AppScreenshotsSection />
       <TestimonialsSection />
       <AppCtaSection onHemenBasla={() => setIsHemenBaslaOpen(true)} />
-      <Footer />
+      <Footer onNasilCalisir={() => setIsNasilCalisirOpen(true)} />
       <HemenBaslaModal isOpen={isHemenBaslaOpen} onClose={() => setIsHemenBaslaOpen(false)} />
       <NasilCalisirModal isOpen={isNasilCalisirOpen} onClose={() => setIsNasilCalisirOpen(false)} />
     </main>
