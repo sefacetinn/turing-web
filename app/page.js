@@ -475,22 +475,24 @@ function Navbar({ onHemenBasla, onNasilCalisir, onEarlyAccess }) {
             <div className="relative" onMouseEnter={() => setActiveDropdown('solutions')} onMouseLeave={() => setActiveDropdown(null)}>
               <button className={`flex items-center gap-1 px-4 py-2 rounded-lg font-medium transition-colors ${isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white/90 hover:bg-white/10'}`}>
                 Çözümler
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'solutions' ? 'rotate-180' : ''}`} />
               </button>
 
               {activeDropdown === 'solutions' && (
-                <div className="absolute top-full left-0 w-80 mt-2 p-2 bg-white rounded-xl shadow-xl border border-gray-100 animate-fade-in">
-                  {solutions.map((item) => (
-                    <a key={item.name} href={item.href} className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                      <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <div className="font-medium text-gray-900">{item.name}</div>
-                        <div className="text-sm text-gray-500">{item.desc}</div>
-                      </div>
-                    </a>
-                  ))}
+                <div className="absolute top-full left-0 w-80 pt-2">
+                  <div className="p-2 bg-white rounded-xl shadow-xl border border-gray-100 animate-fade-in">
+                    {solutions.map((item) => (
+                      <a key={item.name} href={item.href} onClick={() => setActiveDropdown(null)} className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                          <item.icon className="w-5 h-5 text-blue-600" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-gray-900">{item.name}</div>
+                          <div className="text-sm text-gray-500">{item.desc}</div>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
