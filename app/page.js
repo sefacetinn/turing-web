@@ -10,7 +10,7 @@ import {
   Search, Calendar, Send, User, Building, Briefcase,
   Rocket, Check, PlayCircle, PauseCircle, FileCheck,
   BarChart3, Shield, Zap, Globe, Headphones, Clock,
-  Target, TrendingUp, Award, Sparkles
+  Target, TrendingUp, Award, Sparkles, Smartphone
 } from 'lucide-react'
 
 // ============================================
@@ -550,60 +550,300 @@ function Navbar({ onHemenBasla, onNasilCalisir, onEarlyAccess }) {
 // ============================================
 function HeroSection({ onHemenBasla, onNasilCalisir }) {
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-[#121212] overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-[#121212] overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 right-1/3 w-[300px] h-[300px] bg-pink-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 py-32">
-        <div className="max-w-4xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8">
-            <Sparkles className="w-4 h-4 text-blue-400" />
-            <span className="text-white/80 text-sm font-medium">Türkiye'nin Etkinlik Platformu</span>
+      <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <div>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8 animate-fade-in">
+              <Sparkles className="w-4 h-4 text-blue-400" />
+              <span className="text-white/80 text-sm font-medium">Türkiye'nin Etkinlik Platformu</span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+              Canlı etkinliklerin geleceğini
+              <span className="block mt-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                birlikte şekillendirelim
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-white/60 max-w-xl mb-10 leading-relaxed">
+              Global çözümlerimiz ve yerel ekibimiz ile etkinliklerinizin potansiyelini maksimize edin.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4">
+              <button onClick={onHemenBasla} className="group flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-all shadow-lg shadow-blue-600/25">
+                Bizimle Çalışın
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button onClick={onNasilCalisir} className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/20 hover:scale-105 transition-all">
+                Çözümleri Keşfet
+              </button>
+            </div>
+
+            {/* Stats */}
+            <div className="flex flex-wrap gap-8 lg:gap-12 mt-12 pt-8 border-t border-white/10">
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-white">500+</div>
+                <div className="text-white/50 mt-1 text-sm">Hizmet Sağlayıcı</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-white">1,200+</div>
+                <div className="text-white/50 mt-1 text-sm">Başarılı Etkinlik</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-white">81</div>
+                <div className="text-white/50 mt-1 text-sm">İl Kapsamı</div>
+              </div>
+            </div>
           </div>
 
-          {/* Main Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Canlı etkinliklerin geleceğini
-            <span className="block mt-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              birlikte şekillendirelim
-            </span>
-          </h1>
+          {/* Right - Phone Mockups */}
+          <div className="hidden lg:flex justify-center items-center relative">
+            {/* Main Phone */}
+            <div className="relative z-20">
+              <div className="relative w-[280px] h-[580px] rounded-[3rem] bg-gradient-to-b from-gray-800 to-gray-900 p-2 shadow-2xl shadow-black/50">
+                <div className="w-full h-full rounded-[2.5rem] overflow-hidden bg-[#1a1a2e] relative">
+                  {/* Notch */}
+                  <div className="absolute top-0 left-0 right-0 flex justify-center pt-2 z-10">
+                    <div className="w-28 h-7 bg-black rounded-full" />
+                  </div>
+                  {/* Screen Content */}
+                  <Image src="/app-screenshot-1.png" alt="Turing App" fill className="object-cover" />
+                </div>
+              </div>
+              {/* Glow effect */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-[3.5rem] blur-2xl -z-10" />
+            </div>
 
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-white/60 max-w-2xl mb-10 leading-relaxed">
-            Global çözümlerimiz ve yerel ekibimiz ile etkinliklerinizin potansiyelini maksimize edin.
-            Organizatörler ve hizmet sağlayıcılar için tek platform.
+            {/* Secondary Phone - Left */}
+            <div className="absolute -left-16 top-20 z-10 transform -rotate-12">
+              <div className="relative w-[200px] h-[420px] rounded-[2rem] bg-gradient-to-b from-gray-800 to-gray-900 p-1.5 shadow-xl opacity-80">
+                <div className="w-full h-full rounded-[1.75rem] overflow-hidden bg-[#1a1a2e] relative">
+                  <Image src="/app-screenshot-2.png" alt="Turing App" fill className="object-cover" />
+                </div>
+              </div>
+            </div>
+
+            {/* Secondary Phone - Right */}
+            <div className="absolute -right-12 top-32 z-10 transform rotate-12">
+              <div className="relative w-[200px] h-[420px] rounded-[2rem] bg-gradient-to-b from-gray-800 to-gray-900 p-1.5 shadow-xl opacity-80">
+                <div className="w-full h-full rounded-[1.75rem] overflow-hidden bg-[#1a1a2e] relative">
+                  <Image src="/app-screenshot-3.png" alt="Turing App" fill className="object-cover" />
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Elements */}
+            <div className="absolute -top-4 right-0 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center gap-2 animate-bounce" style={{ animationDuration: '3s' }}>
+              <div className="w-2 h-2 rounded-full bg-green-400" />
+              <span className="text-white text-sm font-medium">500+ Online</span>
+            </div>
+
+            <div className="absolute bottom-10 -left-8 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-lg flex items-center gap-3 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+              <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+              <span className="text-white text-sm font-medium">4.9 Puan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ============================================
+// APP SHOWCASE SECTION
+// ============================================
+function AppShowcaseSection({ onEarlyAccess }) {
+  const [activeScreen, setActiveScreen] = useState(0)
+
+  const screens = [
+    {
+      id: 1,
+      title: 'Hizmet Keşfet',
+      desc: 'Yüzlerce hizmet sağlayıcı arasından ihtiyacınıza en uygun olanı bulun.',
+      image: '/app-screenshot-1.png'
+    },
+    {
+      id: 2,
+      title: 'Teklif Al',
+      desc: 'Birden fazla tedarikçiden teklif alın, karşılaştırın ve en iyisini seçin.',
+      image: '/app-screenshot-2.png'
+    },
+    {
+      id: 3,
+      title: 'Yönet',
+      desc: 'Tüm etkinlik süreçlerinizi tek bir yerden takip edin.',
+      image: '/app-screenshot-3.png'
+    }
+  ]
+
+  const features = [
+    { icon: Zap, title: 'Hızlı Eşleşme', desc: 'Saniyeler içinde uygun tedarikçileri bulun' },
+    { icon: Shield, title: 'Güvenli Ödeme', desc: 'Emanet sistemi ile güvende ödeyin' },
+    { icon: Headphones, title: '7/24 Destek', desc: 'Her zaman yanınızdayız' },
+    { icon: Globe, title: '81 İl', desc: 'Türkiye genelinde hizmet' },
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveScreen((prev) => (prev + 1) % screens.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <section className="py-24 bg-gradient-to-b from-[#121212] to-[#1a1a2e] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+            <Smartphone className="w-4 h-4 text-blue-400" />
+            <span className="text-blue-400 text-sm font-medium">Mobil Uygulama</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Her Şey Avucunuzun İçinde
+          </h2>
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            Turing mobil uygulaması ile etkinliklerinizi her yerden yönetin.
           </p>
+        </div>
 
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-4">
-            <button onClick={onHemenBasla} className="group flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-all">
-              Bizimle Çalışın
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button onClick={onNasilCalisir} className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all">
-              Çözümleri Keşfet
-            </button>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Phone Display */}
+          <div className="relative flex justify-center order-2 lg:order-1">
+            {/* Glow */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-[400px] h-[400px] bg-gradient-to-r from-blue-600/30 via-purple-600/30 to-pink-600/30 rounded-full blur-3xl" />
+            </div>
+
+            {/* Main Phone */}
+            <div className="relative z-10">
+              <div className="relative w-[300px] h-[620px] rounded-[3rem] bg-gradient-to-b from-gray-700 to-gray-900 p-2 shadow-2xl">
+                <div className="w-full h-full rounded-[2.5rem] overflow-hidden bg-black relative">
+                  {/* Dynamic Island */}
+                  <div className="absolute top-0 left-0 right-0 flex justify-center pt-3 z-20">
+                    <div className="w-32 h-8 bg-black rounded-full" />
+                  </div>
+                  {/* Screen */}
+                  {screens.map((screen, i) => (
+                    <div
+                      key={screen.id}
+                      className={`absolute inset-0 transition-opacity duration-500 ${activeScreen === i ? 'opacity-100' : 'opacity-0'}`}
+                    >
+                      <Image src={screen.image} alt={screen.title} fill className="object-cover" />
+                    </div>
+                  ))}
+                </div>
+                {/* Side Buttons */}
+                <div className="absolute right-[-2px] top-32 w-1 h-16 bg-gray-700 rounded-l" />
+                <div className="absolute left-[-2px] top-24 w-1 h-8 bg-gray-700 rounded-r" />
+                <div className="absolute left-[-2px] top-36 w-1 h-12 bg-gray-700 rounded-r" />
+              </div>
+
+              {/* Platform badges */}
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+                <div className="flex items-center gap-2 px-4 py-2 bg-black rounded-full border border-white/20">
+                  <Apple className="w-5 h-5 text-white" />
+                  <span className="text-white text-sm font-medium">iOS</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 bg-black rounded-full border border-white/20">
+                  <Play className="w-5 h-5 text-white" />
+                  <span className="text-white text-sm font-medium">Android</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating notification cards */}
+            <div className="absolute top-20 -right-4 lg:right-0 p-3 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl z-20 animate-float">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+                  <Check className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="text-white text-sm font-medium">Yeni Teklif</div>
+                  <div className="text-white/60 text-xs">Pro Sound - ₺15,000</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute bottom-32 -left-4 lg:left-0 p-3 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl z-20 animate-float" style={{ animationDelay: '2s' }}>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
+                  <Calendar className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="text-white text-sm font-medium">Etkinlik Onaylandı</div>
+                  <div className="text-white/60 text-xs">Festival 2026</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Stats */}
-          <div className="flex flex-wrap gap-12 mt-16 pt-8 border-t border-white/10">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-white">500+</div>
-              <div className="text-white/50 mt-1">Hizmet Sağlayıcı</div>
+          {/* Content */}
+          <div className="order-1 lg:order-2">
+            {/* Screen selector */}
+            <div className="space-y-4 mb-10">
+              {screens.map((screen, i) => (
+                <button
+                  key={screen.id}
+                  onClick={() => setActiveScreen(i)}
+                  className={`w-full p-5 rounded-2xl text-left transition-all duration-300 ${
+                    activeScreen === i
+                      ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30'
+                      : 'bg-white/5 border border-white/10 hover:bg-white/10'
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold ${
+                      activeScreen === i
+                        ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
+                        : 'bg-white/10 text-white/50'
+                    }`}>
+                      {i + 1}
+                    </div>
+                    <div>
+                      <h3 className={`font-semibold ${activeScreen === i ? 'text-white' : 'text-white/70'}`}>
+                        {screen.title}
+                      </h3>
+                      <p className={`text-sm ${activeScreen === i ? 'text-white/70' : 'text-white/40'}`}>
+                        {screen.desc}
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              ))}
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-white">1,200+</div>
-              <div className="text-white/50 mt-1">Başarılı Etkinlik</div>
+
+            {/* Features grid */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {features.map((feature, i) => (
+                <div key={i} className="p-4 rounded-xl bg-white/5 border border-white/10">
+                  <feature.icon className="w-6 h-6 text-blue-400 mb-2" />
+                  <div className="text-white font-medium text-sm">{feature.title}</div>
+                  <div className="text-white/50 text-xs">{feature.desc}</div>
+                </div>
+              ))}
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-white">81</div>
-              <div className="text-white/50 mt-1">İl Kapsamı</div>
-            </div>
+
+            {/* CTA */}
+            <button
+              onClick={onEarlyAccess}
+              className="w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-purple-600/25"
+            >
+              <Rocket className="w-5 h-5" />
+              Erken Erişim için Kayıt Ol
+            </button>
           </div>
         </div>
       </div>
@@ -1042,6 +1282,7 @@ export default function Home() {
         onNasilCalisir={() => setIsNasilCalisirOpen(true)}
       />
       <SolutionsSection />
+      <AppShowcaseSection onEarlyAccess={() => setIsEarlyAccessOpen(true)} />
       <TestimonialsSection />
       <FAQSection />
       <CTASection onHemenBasla={() => setIsHemenBaslaOpen(true)} />
